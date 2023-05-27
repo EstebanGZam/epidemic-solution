@@ -1,0 +1,312 @@
+[
+  {
+    "city1": 1491,
+    "city2": 1894,
+    "suppliesUsed": 12
+  },
+  {
+    "city1": 1491,
+    "city2": 1269,
+    "suppliesUsed": 35
+  },
+  {
+    "city1": 1894,
+    "city2": 1399,
+    "suppliesUsed": 62
+  },
+  {
+    "city1": 1399,
+    "city2": 1264,
+    "suppliesUsed": 22
+  },
+  {
+    "city1": 1264,
+    "city2": 1458,
+    "suppliesUsed": 33
+  },
+  {
+    "city1": 1269,
+    "city2": 1505,
+    "suppliesUsed": 83
+  },
+  {
+    "city1": 1505,
+    "city2": 1344,
+    "suppliesUsed": 71
+  },
+  {
+    "city1": 1344,
+    "city2": 1303,
+    "suppliesUsed": 46
+  },
+  {
+    "city1": 1344,
+    "city2": 1547,
+    "suppliesUsed": 97
+  },
+  {
+    "city1": 1344,
+    "city2": 1362,
+    "suppliesUsed": 72
+  },
+  {
+    "city1": 1303,
+    "city2": 1092,
+    "suppliesUsed": 79
+  },
+  {
+    "city1": 1092,
+    "city2": 1316,
+    "suppliesUsed": 25
+  },
+  {
+    "city1": 1092,
+    "city2": 1547,
+    "suppliesUsed": 96
+  },
+  {
+    "city1": 1092,
+    "city2": 1795,
+    "suppliesUsed": 43
+  },
+  {
+    "city1": 1316,
+    "city2": 1399,
+    "suppliesUsed": 17
+  },
+  {
+    "city1": 1795,
+    "city2": 1394,
+    "suppliesUsed": 91
+  },
+  {
+    "city1": 1744,
+    "city2": 1394,
+    "suppliesUsed": 84
+  },
+  {
+    "city1": 1744,
+    "city2": 1441,
+    "suppliesUsed": 53
+  },
+  {
+    "city1": 1394,
+    "city2": 1844,
+    "suppliesUsed": 26
+  },
+  {
+    "city1": 1844,
+    "city2": 1470,
+    "suppliesUsed": 59
+  },
+  {
+    "city1": 1362,
+    "city2": 1575,
+    "suppliesUsed": 46
+  },
+  {
+    "city1": 1575,
+    "city2": 1818,
+    "suppliesUsed": 95
+  },
+  {
+    "city1": 1818,
+    "city2": 1441,
+    "suppliesUsed": 91
+  },
+  {
+    "city1": 1362,
+    "city2": 1559,
+    "suppliesUsed": 95
+  },
+  {
+    "city1": 1559,
+    "city2": 2026,
+    "suppliesUsed": 63
+  },
+  {
+    "city1": 2026,
+    "city2": 1573,
+    "suppliesUsed": 72
+  },
+  {
+    "city1": 1470,
+    "city2": 2026,
+    "suppliesUsed": 15
+  },
+  {
+    "city1": 1573,
+    "city2": 1484,
+    "suppliesUsed": 60
+  },
+  {
+    "city1": 1484,
+    "city2": 1450,
+    "suppliesUsed": 40
+  },
+  {
+    "city1": 1450,
+    "city2": 1346,
+    "suppliesUsed": 28
+  },
+  {
+    "city1": 1450,
+    "city2": 1661,
+    "suppliesUsed": 26
+  },
+  {
+    "city1": 1661,
+    "city2": 1573,
+    "suppliesUsed": 28
+  },
+  {
+    "city1": 1639,
+    "city2": 1639,
+    "suppliesUsed": 70
+  },
+  {
+    "city1": 1639,
+    "city2": 1661,
+    "suppliesUsed": 79
+  },
+  {
+    "city1": 1639,
+    "city2": 1700,
+    "suppliesUsed": 67
+  },
+  {
+    "city1": 1700,
+    "city2": 1225,
+    "suppliesUsed": 14
+  },
+  {
+    "city1": 1225,
+    "city2": 1352,
+    "suppliesUsed": 51
+  },
+  {
+    "city1": 1352,
+    "city2": 1633,
+    "suppliesUsed": 94
+  },
+  {
+    "city1": 1633,
+    "city2": 1346,
+    "suppliesUsed": 35
+  },
+  {
+    "city1": 1633,
+    "city2": 1272,
+    "suppliesUsed": 88
+  },
+  {
+    "city1": 1272,
+    "city2": 1636,
+    "suppliesUsed": 44
+  },
+  {
+    "city1": 1636,
+    "city2": 1390,
+    "suppliesUsed": 53
+  },
+  {
+    "city1": 1390,
+    "city2": 1680,
+    "suppliesUsed": 39
+  },
+  {
+    "city1": 1680,
+    "city2": 1638,
+    "suppliesUsed": 18
+  },
+  {
+    "city1": 1680,
+    "city2": 1639,
+    "suppliesUsed": 79
+  },
+  {
+    "city1": 1738,
+    "city2": 1680,
+    "suppliesUsed": 97
+  },
+  {
+    "city1": 1738,
+    "city2": 1736,
+    "suppliesUsed": 77
+  },
+  {
+    "city1": 1736,
+    "city2": 1784,
+    "suppliesUsed": 95
+  },
+  {
+    "city1": 1736,
+    "city2": 1983,
+    "suppliesUsed": 66
+  },
+  {
+    "city1": 1291,
+    "city2": 1983,
+    "suppliesUsed": 83
+  },
+  {
+    "city1": 1291,
+    "city2": 1390,
+    "suppliesUsed": 12
+  },
+  {
+    "city1": 1291,
+    "city2": 1678,
+    "suppliesUsed": 73
+  },
+  {
+    "city1": 1352,
+    "city2": 1638,
+    "suppliesUsed": 18
+  },
+  {
+    "city1": 1575,
+    "city2": 1346,
+    "suppliesUsed": 79
+  },
+  {
+    "city1": 1346,
+    "city2": 1812,
+    "suppliesUsed": 28
+  },
+  {
+    "city1": 1346,
+    "city2": 1961,
+    "suppliesUsed": 44
+  },
+  {
+    "city1": 1961,
+    "city2": 1272,
+    "suppliesUsed": 80
+  },
+  {
+    "city1": 1961,
+    "city2": 1958,
+    "suppliesUsed": 91
+  },
+  {
+    "city1": 1958,
+    "city2": 1974,
+    "suppliesUsed": 50
+  },
+  {
+    "city1": 1958,
+    "city2": 2088,
+    "suppliesUsed": 81
+  },
+  {
+    "city1": 1974,
+    "city2": 2088,
+    "suppliesUsed": 85
+  },
+  {
+    "city1": 1272,
+    "city2": 2088,
+    "suppliesUsed": 58
+  }
+]
