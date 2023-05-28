@@ -10,14 +10,17 @@ import java.util.ResourceBundle;
 
 public class EpidemicController implements Initializable {
 
-    private Map map = Map.getInstance(null);
+    private final Map map = Map.getInstance(null);
 
     @FXML
     private AnchorPane mainScreen;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        mainScreen.getChildren().add(map.getRadioButtonGroup());
+        // Add the Lines to the AnchorPane
+        mainScreen.getChildren().addAll(map.getLines().values());
+        // Add the RadioButton to the AnchorPane
+        mainScreen.getChildren().addAll(map.getRadioButtons().values());
     }
 
 }

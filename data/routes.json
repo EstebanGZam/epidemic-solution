@@ -95,7 +95,7 @@
     "suppliesUsed": 26
   },
   {
-    "city1": 150500,
+    "city1": 138408,
     "city2": 161424,
     "suppliesUsed": 59
   },
@@ -135,11 +135,6 @@
     "suppliesUsed": 15
   },
   {
-    "city1": 202212,
-    "city2": 138408,
-    "suppliesUsed": 60
-  },
-  {
     "city1": 138408,
     "city2": 165212,
     "suppliesUsed": 40
@@ -155,14 +150,19 @@
     "suppliesUsed": 26
   },
   {
+    "city1": 222240,
+    "city2": 202212,
+    "suppliesUsed": 28
+  },
+  {
     "city1": 171216,
     "city2": 202212,
     "suppliesUsed": 28
   },
   {
-    "city1": 222240,
-    "city2": 222240,
-    "suppliesUsed": 70
+    "city1": 150500,
+    "city2": 202212,
+    "suppliesUsed": 28
   },
   {
     "city1": 222240,
@@ -270,14 +270,19 @@
     "suppliesUsed": 79
   },
   {
-    "city1": 145360,
+    "city1": 113145,
     "city2": 66051,
     "suppliesUsed": 28
   },
   {
     "city1": 145360,
-    "city2": 106200,
+    "city2": 113145,
     "suppliesUsed": 44
+  },
+  {
+    "city1": 106200,
+    "city2": 113145,
+    "suppliesUsed": 80
   },
   {
     "city1": 106200,
@@ -293,6 +298,11 @@
     "city1": 89433,
     "city2": 68425,
     "suppliesUsed": 50
+  },
+  {
+    "city1": 208008,
+    "city2": 131719,
+    "suppliesUsed": 81
   },
   {
     "city1": 89433,
