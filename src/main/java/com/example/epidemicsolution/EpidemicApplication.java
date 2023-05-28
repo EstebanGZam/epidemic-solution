@@ -4,7 +4,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -12,7 +14,7 @@ public class EpidemicApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        openWindow("hello-view.fxml");
+        openWindow("init-view.fxml");
     }
 
     public static void openWindow(String fxml) {
