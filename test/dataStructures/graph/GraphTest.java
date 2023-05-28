@@ -1,8 +1,11 @@
 package dataStructures.graph;
 
-import dataStructures.graph.graphAdjacencyList.GraphAdjacencyList;
-import dataStructures.graph.graphAdjacencyMatrix.GraphAdjacencyMatrix;
-import exception.GraphException;
+import com.example.epidemicsolution.dataStructures.graph.GraphType;
+import com.example.epidemicsolution.dataStructures.graph.IGraph;
+import com.example.epidemicsolution.dataStructures.graph.Vertex;
+import com.example.epidemicsolution.dataStructures.graph.graphAdjacencyList.GraphAdjacencyList;
+import com.example.epidemicsolution.dataStructures.graph.graphAdjacencyMatrix.GraphAdjacencyMatrix;
+import com.example.epidemicsolution.exception.GraphException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * the corresponding lines that initialize the graph using arrays must be uncommented.
  */
 public class GraphTest {
+
 	private IGraph<Integer, String> simpleGraph;
 	private IGraph<String, Integer> pseudoGraph;
 	private IGraph<Integer, String> directedGraph1;
@@ -557,6 +561,5 @@ public class GraphTest {
 		Assertions.assertEquals(11, ver_z.getFinishTime());
 
 	}
-
 
 }
