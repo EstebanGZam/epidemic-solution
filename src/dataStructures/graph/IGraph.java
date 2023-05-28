@@ -40,7 +40,7 @@ public interface IGraph<K extends Comparable<K>, E> {
 	 * @param weight     the weight of the edge
 	 * @throws GraphException if the vertices are not found or an edge already exists between them
 	 */
-	void insertEdge(K keyVertex1, K keyVertex2, double weight) throws GraphException;
+	void insertEdge(K keyVertex1, K keyVertex2, int weight) throws GraphException;
 
 	/**
 	 * Deletes the edge between the vertices with the specified keys from the graph.

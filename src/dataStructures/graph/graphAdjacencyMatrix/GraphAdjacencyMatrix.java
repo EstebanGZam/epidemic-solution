@@ -59,7 +59,7 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
 	}
 
 	@Override
-	public void insertEdge(K keyVertex1, K keyVertex2, double weight) throws GraphException {
+	public void insertEdge(K keyVertex1, K keyVertex2, int weight) throws GraphException {
 		verifyExistence(keyVertex1, keyVertex2);
 		int va = vertexesIndex.get(keyVertex1);
 		int vb = vertexesIndex.get(keyVertex2);

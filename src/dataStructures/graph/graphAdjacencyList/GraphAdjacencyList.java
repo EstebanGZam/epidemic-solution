@@ -7,9 +7,7 @@ import dataStructures.graph.Vertex;
 import exception.GraphException;
 
 import java.awt.*;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class GraphAdjacencyList<K extends Comparable<K>, E> extends Graph<K, E> {
 	private final HashMap<K, VertexAdjacentList<K, E>> vertexes;
@@ -42,7 +40,7 @@ public class GraphAdjacencyList<K extends Comparable<K>, E> extends Graph<K, E> 
 	}
 
 	@Override
-	public void insertEdge(K key1, K key2, double weight) throws GraphException {
+	public void insertEdge(K key1, K key2, int weight) throws GraphException {
 		VertexAdjacentList<K, E> v1 = vertexes.get(key1);
 		VertexAdjacentList<K, E> v2 = vertexes.get(key2);
 		if (v1 == null || v2 == null) throw new GraphException("Vertex not found");
@@ -144,6 +142,35 @@ public class GraphAdjacencyList<K extends Comparable<K>, E> extends Graph<K, E> 
 		u.setColor(Color.BLACK);
 		time++;
 		u.setFinishTime(time);
+	}
+
+	public void dijkstra(K keyVertexSource) {
+		vertexes.get(keyVertexSource).setDistance(0);
+		PriorityQueue<VertexAdjacentList<K, E>> priorityQueue = new PriorityQueue<>(Comparator.comparing(Vertex<K, E>::getDistance));
+		for (K key : vertexes.keySet()) {
+			VertexAdjacentList<K, E> vertex = vertexes.get(key);
+			if (key.compareTo(keyVertexSource) != 0) {
+				vertex.setDistance(Integer.MAX_VALUE);
+			}
+			vertex.setPredecessor(null);
+			priorityQueue.offer(vertex);
+		}
+
+		while (!priorityQueue.isEmpty()) {
+			VertexAdjacentList<K, E> u = priorityQueue.poll();
+			for (Edge<K, E> edge : u.getAdjacentList()) {
+				VertexAdjacentList<K, E> v = (VertexAdjacentList<K, E>) edge.destination();
+				int alt = u.getDistance() + edge.weight();
+				if (alt < u.getDistance()) {
+					v.setDistance(alt);
+					v.setPredecessor(u);
+					priorityQueue.offer(v);
+				}
+			}
+		}
+
+		return;
+
 	}
 
 }
