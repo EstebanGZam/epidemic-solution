@@ -5,8 +5,9 @@ import com.example.epidemicsolution.dataStructures.graph.IGraph;
 import com.example.epidemicsolution.dataStructures.graph.graphAdjacencyList.GraphAdjacencyList;
 import com.example.epidemicsolution.dataStructures.graph.graphAdjacencyMatrix.GraphAdjacencyMatrix;
 import com.google.gson.Gson;
+import javafx.scene.Cursor;
 import javafx.scene.control.RadioButton;
-import javafx.scene.paint.Color;
+import javafx.scene.control.Tooltip;
 import javafx.scene.shape.Line;
 
 import java.io.File;
@@ -56,6 +57,10 @@ public class Map {
                 // Set the position of the RadioButton using the "x" and "y" coordinates
                 radioButton.setLayoutX(city.getX());
                 radioButton.setLayoutY(city.getY());
+                radioButton.setCursor(Cursor.HAND);
+                // Text hover with the name of the city
+                Tooltip tooltip = new Tooltip(city.getCity());
+                Tooltip.install(radioButton, tooltip);
                 // Add the RadioButton to the ObservableList
                 radioButtons.put(city.getId(), radioButton);
             }
@@ -85,12 +90,49 @@ public class Map {
                 RadioButton city2 = radioButtons.get(route.getCity2());
                 // Create and configure the Line
                 Line line = new Line(city1.getLayoutX() + 8, city1.getLayoutY() + 8, city2.getLayoutX() + 8, city2.getLayoutY() + 8);
+                // Set hover text on the line
+                line.setCursor(Cursor.HAND);
+                String tooltipText = String.valueOf(route.getSuppliesUsed());
+                Tooltip tooltip = new Tooltip(tooltipText);
+                Tooltip.install(line, tooltip);
+                // Set line thickness
+                line.setStrokeWidth(1.5);
                 // Add the Line to the ObservableList
                 lines.put(route.getCity1() + route.getCity2(), line);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean updateRoute(RadioButton r1, RadioButton r2, int suppliesUsed) {
+        // Get the id of each city
+        int idCity1 = (int) r1.getLayoutX() * (int) r1.getLayoutY();
+        int idCity2 = (int) r2.getLayoutX() * (int) r2.getLayoutY();
+        // Check that they are adjacent vertices
+        if (map.adjacent(idCity1, idCity2)) {
+            // Update the suppliesUsed value of the route between the cities
+            map.deleteEdge(idCity1, idCity2);
+            map.insertEdge(idCity1, idCity2, suppliesUsed);
+            // Update the tooltip of the line with the new value of suppliesUsed
+            Line line = lines.get(idCity1 + idCity2);
+            String tooltipText = String.valueOf(suppliesUsed);
+            Tooltip tooltip = new Tooltip(tooltipText);
+            Tooltip.install(line, tooltip);
+            return true;
+        }
+        return false;
+    }
+
+
+    public int distanceBetweenTwoCities(RadioButton r1, RadioButton r2) {
+        // Obtain the id of each city
+        int idCity1 = (int) r1.getLayoutX() * (int) r1.getLayoutY();
+        int idCity2 = (int) r2.getLayoutX() * (int) r2.getLayoutY();
+        // Used BFS
+        map.BFS(idCity1);
+        // Return the distance between the city2 and the city1
+        return map.getVertex(idCity2).getDistance() - 1;
     }
 
     public HashMap<Integer, RadioButton> getRadioButtons() {
