@@ -23,7 +23,27 @@ public class EpidemicController implements Initializable {
     private AnchorPane mainScreen;
 
     @FXML
+    private TextField city1;
+
+    @FXML
+    private TextField city2;
+
+    @FXML
     private TextField suppliesUsedTf;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Add the Lines to the AnchorPane
+        mainScreen.getChildren().addAll(map.getLines().values());
+        // Add the RadioButton to the AnchorPane
+        mainScreen.getChildren().addAll(map.getRadioButtons().values());
+        // Set the event for each radio button
+        map.getRadioButtons().values().forEach(radioButton ->
+                radioButton.setOnAction(this::threadRadioButton));
+        // Disable text fields
+        city1.setEditable(false);
+        city2.setEditable(false);
+    }
 
     @FXML
     void updateRoute(ActionEvent event) {
@@ -52,23 +72,11 @@ public class EpidemicController implements Initializable {
             int distanceBetweenTwoCities = map.distanceBetweenTwoCities(selectedRadioButton1, selectedRadioButton2);
             System.out.println(distanceBetweenTwoCities);
         } else {
-            // In case the user does not select two radio buttons, an alert is displayed
             showAlert("Please select two cities.");
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Add the Lines to the AnchorPane
-        mainScreen.getChildren().addAll(map.getLines().values());
-        // Add the RadioButton to the AnchorPane
-        mainScreen.getChildren().addAll(map.getRadioButtons().values());
-        // Configurar el evento para cada radio button
-        map.getRadioButtons().values().forEach(radioButton ->
-                radioButton.setOnAction(this::threadButton));
-    }
-
-    private void threadButton(ActionEvent event) {
+    private void threadRadioButton(ActionEvent event) {
         RadioButton selectedRadioButton = (RadioButton) event.getSource();
         Thread thread = new Thread(() -> {
             if (selectedRadioButton.isSelected()) {
@@ -76,8 +84,10 @@ public class EpidemicController implements Initializable {
                     selectedCount++;
                     if (selectedRadioButton1 == null) {
                         selectedRadioButton1 = selectedRadioButton;
+                        city1.setText(map.getNameCity(selectedRadioButton)); // Set the city selected to the text field
                     } else if (selectedRadioButton2 == null) {
                         selectedRadioButton2 = selectedRadioButton;
+                        city2.setText(map.getNameCity(selectedRadioButton)); // Set the city selected to the text field
                     }
                 } else {
                     selectedRadioButton.setSelected(false); // Deselect the radio button
@@ -86,8 +96,10 @@ public class EpidemicController implements Initializable {
                 selectedCount--;
                 if (selectedRadioButton1 == selectedRadioButton) {
                     selectedRadioButton1 = null;
+                    city1.setText(null);
                 } else if (selectedRadioButton2 == selectedRadioButton) {
                     selectedRadioButton2 = null;
+                    city2.setText(null);
                 }
             }
         });

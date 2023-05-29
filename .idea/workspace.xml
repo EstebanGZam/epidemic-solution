@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8825d48-d110-4b1d-9369-217d9b92488c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/control/EpidemicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/control/EpidemicController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/controller/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/controller/Map.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/epidemicsolution/epidemic-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/epidemicsolution/epidemic-view.fxml" afterDir="false" />

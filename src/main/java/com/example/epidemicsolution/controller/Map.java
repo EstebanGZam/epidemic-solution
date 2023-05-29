@@ -105,6 +105,10 @@ public class Map {
         }
     }
 
+    public String getNameCity(RadioButton r) {
+        return map.getVertex((int) r.getLayoutX() * (int) r.getLayoutY()).getElement().getCity();
+    }
+
     public boolean updateRoute(RadioButton r1, RadioButton r2, int suppliesUsed) {
         // Get the id of each city
         int idCity1 = (int) r1.getLayoutX() * (int) r1.getLayoutY();
@@ -123,7 +127,6 @@ public class Map {
         }
         return false;
     }
-
 
     public int distanceBetweenTwoCities(RadioButton r1, RadioButton r2) {
         // Obtain the id of each city
