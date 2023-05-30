@@ -2,6 +2,8 @@ package com.example.epidemicsolution.dataStructures.graph;
 
 import com.example.epidemicsolution.exception.GraphException;
 
+import java.util.ArrayList;
+
 /**
  * The {@code IGraph} interface represents a graph data structure.
  *
@@ -50,7 +52,7 @@ public interface IGraph<K extends Comparable<K>, E> {
 	 * @param keyVertex2 the key of the second vertex
 	 * @throws GraphException if the vertices are not found or there is no edge between them
 	 */
-	void deleteEdge(K keyVertex1, K keyVertex2) throws GraphException;
+	void deleteEdge(K keyVertex1, K keyVertex2, int weight) throws GraphException;
 
 	/**
 	 * Checks whether there is an edge between the vertices with the specified keys in the graph.
@@ -73,6 +75,14 @@ public interface IGraph<K extends Comparable<K>, E> {
 	 * Performs a depth-first search in the graph.
 	 */
 	void DFS();
+
+	/**
+	 * Finds the shortest paths from a specified source vertex to all other vertices in the graph using Dijkstra's algorithm.
+	 *
+	 * @param keyVertexSource the key or identifier of the source vertex
+	 * @return an ArrayList<Integer> representing the shortest paths from the source vertex to all other vertices
+	 */
+	ArrayList<Integer> dijkstra(K keyVertexSource);
 
 }
 

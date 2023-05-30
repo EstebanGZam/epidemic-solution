@@ -1,15 +1,13 @@
 package com.example.epidemicsolution.dataStructures.graph.graphAdjacencyMatrix;
 
-import com.example.epidemicsolution.dataStructures.graph.Edge;
 import com.example.epidemicsolution.dataStructures.graph.Graph;
 import com.example.epidemicsolution.dataStructures.graph.GraphType;
 import com.example.epidemicsolution.dataStructures.graph.Vertex;
 import com.example.epidemicsolution.exception.GraphException;
 import com.example.epidemicsolution.dataStructures.graph.Color;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E> {
 
@@ -17,7 +15,7 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
 	private final HashMap<Integer, Vertex<K, E>> vertexes;
 	private int currentVertexNumber;
 	private static final int maxVertexes = 50;
-	private final int[][] adjacencyMatrix;
+	private final ArrayList<Integer>[][] adjacencyMatrix;
 
 	public GraphAdjacencyMatrix(GraphType graphType) {
 		this(maxVertexes, graphType);
@@ -28,10 +26,10 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
 		this.vertexes = new HashMap<>();
 		this.currentVertexNumber = 0;
 		this.vertexesIndex = new HashMap<>();
-		adjacencyMatrix = new int[maxVertex][maxVertex];
+		adjacencyMatrix = new ArrayList[maxVertex][maxVertex];
 		for (int i = 0; i < maxVertex; i++)
 			for (int j = 0; j < maxVertex; j++)
-				adjacencyMatrix[i][j] = 0;
+				adjacencyMatrix[i][j] = new ArrayList<>();
 	}
 
 	@Override
@@ -48,8 +46,8 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
 		if (v != null) {
 			int vertexIndex = vertexesIndex.get(v.getKey());
 			for (int i = 0; i < maxVertexes; i++) {
-				adjacencyMatrix[vertexIndex][i] = 0;
-				adjacencyMatrix[i][vertexIndex] = 0;
+				adjacencyMatrix[vertexIndex][i] = new ArrayList<>();
+				adjacencyMatrix[i][vertexIndex] = new ArrayList<>();
 			}
 		}
 	}
@@ -65,33 +63,31 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
 		int va = vertexesIndex.get(keyVertex1);
 		int vb = vertexesIndex.get(keyVertex2);
 		if (!loops && va == vb) throw new GraphException("This type of graph does not support loops.");
-		if (!multipleEdges && adjacencyMatrix[va][vb] > 0)
+		if (!multipleEdges && adjacencyMatrix[va][vb].size() > 0)
 			throw new GraphException("This type of graph does not support multiple edges.");
-		edges.add(new Edge<>(vertexes.get(va), vertexes.get(vb), weight));
-		adjacencyMatrix[va][vb]++;
+//		edges.add(new Edge<>(vertexes.get(va), vertexes.get(vb), weight));
+		adjacencyMatrix[va][vb].add(weight);
 		if (!isDirected) {
-			edges.add(new Edge<>(vertexes.get(vb), vertexes.get(va), weight));
-			adjacencyMatrix[vb][va]++;
+//			edges.add(new Edge<>(vertexes.get(vb), vertexes.get(va), weight));
+			adjacencyMatrix[vb][va].add(weight);
 		}
 	}
 
 	@Override
-	public void deleteEdge(K keyVertex1, K keyVertex2) throws GraphException {
+	public void deleteEdge(K keyVertex1, K keyVertex2, int weight) throws GraphException {
 		verifyExistence(keyVertex1, keyVertex2);
 		int va = vertexesIndex.get(keyVertex1);
 		int vb = vertexesIndex.get(keyVertex2);
-		if (adjacencyMatrix[va][vb] > 0) {
-			edges.removeIf(edge -> edge.destination().getKey().compareTo(keyVertex2) == 0
-					|| edge.destination().getKey().compareTo(keyVertex1) == 0);
-			adjacencyMatrix[va][vb]--;
-			if (!isDirected) adjacencyMatrix[vb][va]--;
+		if (adjacencyMatrix[va][vb].size() > 0) {
+			adjacencyMatrix[va][vb].remove(weight);
+			if (!isDirected) adjacencyMatrix[vb][va].remove(weight);
 		}
 	}
 
 	@Override
 	public boolean adjacent(K keyVertex1, K keyVertex2) throws GraphException {
 		verifyExistence(keyVertex1, keyVertex2);
-		return adjacencyMatrix[vertexNumber(keyVertex1)][vertexNumber(keyVertex2)] > 0;
+		return adjacencyMatrix[vertexNumber(keyVertex1)][vertexNumber(keyVertex2)].size() > 0;
 	}
 
 	@Override
@@ -113,7 +109,7 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
 			Vertex<K, E> u = queue.poll();
 			int uIndex = vertexNumber(u.getKey());
 			for (int i = 0; i < maxVertexes; i++) {
-				if (adjacencyMatrix[uIndex][i] > 0) {
+				if (adjacencyMatrix[uIndex][i].size() > 0) {
 					Vertex<K, E> v = vertexes.get(i);
 					if (v.getColor() == Color.WHITE) {
 						v.setColor(Color.GRAY);
@@ -150,7 +146,7 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
 
 		int uIndex = vertexNumber(u.getKey());
 		for (int i = 0; i < maxVertexes; i++) {
-			if (adjacencyMatrix[uIndex][i] > 0) {
+			if (adjacencyMatrix[uIndex][i].size() > 0) {
 				Vertex<K, E> v = vertexes.get(i);
 				if (v.getColor() == Color.WHITE) {
 					v.setPredecessor(u);
@@ -172,6 +168,34 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
 	private int vertexNumber(K keyVertex) {
 		Integer index = vertexesIndex.get(keyVertex);
 		return index == null ? -1 : index;
+	}
+
+	@Override
+	public ArrayList<Integer> dijkstra(K keyVertexSource) {
+		vertexes.get(vertexNumber(keyVertexSource)).setDistance(0);
+		PriorityQueue<Vertex<K, E>> priorityQueue = new PriorityQueue<>(Comparator.comparing(Vertex<K, E>::getDistance));
+		for (Vertex<K, E> vertex : vertexes.values()) {
+			if (vertex.getKey().compareTo(keyVertexSource) != 0)
+				vertex.setDistance(Integer.MAX_VALUE);
+			vertex.setPredecessor(null);
+			priorityQueue.offer(vertex);
+		}
+		while (!priorityQueue.isEmpty()) {
+			Vertex<K, E> u = priorityQueue.poll();
+			for (int i = 0; i < maxVertexes; i++) {
+				int uIndex = vertexNumber(u.getKey());
+				if (adjacencyMatrix[uIndex][i].size() > 0) {
+					Vertex<K, E> v = vertexes.get(i);
+					int alt = u.getDistance() + adjacencyMatrix[uIndex][i].get(0);
+					if (alt < v.getDistance()) {
+						v.setDistance(alt);
+						v.setPredecessor(u);
+						priorityQueue.offer(v);
+					}
+				}
+			}
+		}
+		return vertexes.values().stream().map(Vertex::getDistance).collect(Collectors.toCollection(ArrayList::new));
 	}
 
 }

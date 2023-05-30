@@ -1,8 +1,6 @@
 package dataStructures.graph;
 
-import com.example.epidemicsolution.dataStructures.graph.GraphType;
-import com.example.epidemicsolution.dataStructures.graph.IGraph;
-import com.example.epidemicsolution.dataStructures.graph.Vertex;
+import com.example.epidemicsolution.dataStructures.graph.*;
 import com.example.epidemicsolution.dataStructures.graph.graphAdjacencyList.GraphAdjacencyList;
 import com.example.epidemicsolution.dataStructures.graph.graphAdjacencyMatrix.GraphAdjacencyMatrix;
 import com.example.epidemicsolution.exception.GraphException;
@@ -31,8 +29,8 @@ public class GraphTest {
 	private IGraph<Integer, String> multiGraphDirected;
 
 	private void setupStageSimpleGraph() {
-		simpleGraph = new GraphAdjacencyList<>(GraphType.SIMPLE);
-//		simpleGraph = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
+//		simpleGraph = new GraphAdjacencyList<>(GraphType.SIMPLE);
+		simpleGraph = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
 		// Insert vertexes in the graph
 		simpleGraph.insertVertex(1, "A");
 		simpleGraph.insertVertex(2, "B");
@@ -45,8 +43,8 @@ public class GraphTest {
 	}
 
 	private void setupStagePseudoGraph() {
-		pseudoGraph = new GraphAdjacencyList<>(GraphType.PSEUDOGRAPH);
-//		pseudoGraph = new GraphAdjacencyMatrix<>(GraphType.PSEUDOGRAPH);
+//		pseudoGraph = new GraphAdjacencyList<>(GraphType.PSEUDOGRAPH);
+		pseudoGraph = new GraphAdjacencyMatrix<>(GraphType.PSEUDOGRAPH);
 		// Insert vertexes in the graph
 		pseudoGraph.insertVertex("1", 1);
 		pseudoGraph.insertVertex("2", 2);
@@ -67,8 +65,8 @@ public class GraphTest {
 	}
 
 	private void setupStageMultiGraph() {
-		multiGraph = new GraphAdjacencyList<>(GraphType.MULTIGRAPH);
-//		multiGraph = new GraphAdjacencyMatrix<>(GraphType.MULTIGRAPH);
+//		multiGraph = new GraphAdjacencyList<>(GraphType.MULTIGRAPH);
+		multiGraph = new GraphAdjacencyMatrix<>(GraphType.MULTIGRAPH);
 		multiGraph.insertVertex(1, "1");
 		multiGraph.insertVertex(2, "2");
 		multiGraph.insertVertex(3, "3");
@@ -90,8 +88,8 @@ public class GraphTest {
 	}
 
 	private void setupStageDirectedGraph() {
-		directedGraph1 = new GraphAdjacencyList<>(GraphType.DIRECTED);
-//		directedGraph1 = new GraphAdjacencyMatrix<>(GraphType.DIRECTED);
+//		directedGraph1 = new GraphAdjacencyList<>(GraphType.DIRECTED);
+		directedGraph1 = new GraphAdjacencyMatrix<>(GraphType.DIRECTED);
 		directedGraph1.insertVertex(1, "1");
 		directedGraph1.insertVertex(2, "2");
 		directedGraph1.insertVertex(3, "3");
@@ -134,13 +132,13 @@ public class GraphTest {
 
 
 	private void setupStageMultiGraphDirected() {
-		multiGraphDirected = new GraphAdjacencyList<>(GraphType.MULTIGRAPH_DIRECTED);
-//		multiGraphDirected = new GraphAdjacencyMatrix<>(GraphType.MULTIGRAPH_DIRECTED);
+//		multiGraphDirected = new GraphAdjacencyList<>(GraphType.MULTIGRAPH_DIRECTED);
+		multiGraphDirected = new GraphAdjacencyMatrix<>(GraphType.MULTIGRAPH_DIRECTED);
 	}
 
 	private void setupStage6() {
-		simpleGraph2 = new GraphAdjacencyList<>(GraphType.SIMPLE);
-//		simpleGraph2 = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
+//		simpleGraph2 = new GraphAdjacencyList<>(GraphType.SIMPLE);
+		simpleGraph2 = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
 		simpleGraph2.insertVertex("r", "r");
 		simpleGraph2.insertVertex("s", "s");
 		simpleGraph2.insertVertex("t", "t");
@@ -153,8 +151,8 @@ public class GraphTest {
 	}
 
 	private void setupStage7() {
-		directedGraph2 = new GraphAdjacencyList<>(GraphType.DIRECTED);
-//		directedGraph2 = new GraphAdjacencyMatrix<>(GraphType.DIRECTED);
+//		directedGraph2 = new GraphAdjacencyList<>(GraphType.DIRECTED);
+		directedGraph2 = new GraphAdjacencyMatrix<>(GraphType.DIRECTED);
 
 		directedGraph2.insertVertex("u", "u");
 		directedGraph2.insertVertex("v", "v");
@@ -349,8 +347,8 @@ public class GraphTest {
 	@Test
 	public void testDeleteEdge1() {
 		setupStagePseudoGraph();
-		pseudoGraph.deleteEdge("1", "1");
-		pseudoGraph.deleteEdge("1", "5");
+		pseudoGraph.deleteEdge("1", "1", 1);
+		pseudoGraph.deleteEdge("1", "5", 1);
 		Assertions.assertFalse(pseudoGraph.adjacent("1", "1"));
 		Assertions.assertFalse(pseudoGraph.adjacent("1", "5"));
 		Assertions.assertFalse(pseudoGraph.adjacent("5", "1"));
@@ -361,8 +359,8 @@ public class GraphTest {
 	@Test
 	public void testDeleteEdge2() {
 		setupStageDirectedGraph();
-		directedGraph1.deleteEdge(1, 2);
-		directedGraph1.deleteEdge(1, 3);
+		directedGraph1.deleteEdge(1, 2, 1);
+		directedGraph1.deleteEdge(1, 3, 1);
 		Assertions.assertFalse(directedGraph1.adjacent(1, 2));
 		Assertions.assertFalse(directedGraph1.adjacent(1, 3));
 
@@ -374,7 +372,7 @@ public class GraphTest {
 	@Test
 	public void testDeleteEdge3() {
 		setupStagePseudoGraph();
-		Assertions.assertThrows(GraphException.class, () -> pseudoGraph.deleteEdge("1", "9"));
+		Assertions.assertThrows(GraphException.class, () -> pseudoGraph.deleteEdge("1", "9", 1));
 	}
 
 	// adjacent() method
@@ -560,6 +558,27 @@ public class GraphTest {
 		Assertions.assertEquals(12, ver_w.getFinishTime());
 		Assertions.assertEquals(11, ver_z.getFinishTime());
 
+	}
+
+	@Test
+	public void testDijkstra() {
+		// Note: This test is based on the slides only. It is not completed.
+//		GraphAdjacencyList<String, String> g = new GraphAdjacencyList<>(GraphType.SIMPLE);
+		GraphAdjacencyMatrix<String, String> g = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
+		g.insertVertex("a", "a");
+		g.insertVertex("b", "b");
+		g.insertVertex("c", "c");
+		g.insertVertex("d", "d");
+		g.insertVertex("e", "e");
+		g.insertVertex("z", "z");
+		g.insertEdge("a", "b", 4);
+		g.insertEdge("a", "d", 2);
+		g.insertEdge("d", "e", 3);
+		g.insertEdge("b", "c", 3);
+		g.insertEdge("b", "e", 3);
+		g.insertEdge("c", "z", 2);
+		g.insertEdge("e", "z", 1);
+		System.out.println(g.dijkstra("a"));
 	}
 
 }
