@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4851e3ad-e278-4bd0-ace4-80d14fcd9fba" name="Changes" comment="First part of dijkstra implementation">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/epidemic-solution.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/Edge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/IGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/IGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/Vertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyList/GraphAdjacencyList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyList/GraphAdjacencyList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyMatrix/GraphAdjacencyMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyMatrix/GraphAdjacencyMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/dataStructures/graph/GraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/dataStructures/graph/GraphTest.java" afterDir="false" />
+    <list default="true" id="b8825d48-d110-4b1d-9369-217d9b92488c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/control/EpidemicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/control/EpidemicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/controller/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/controller/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/epidemicsolution/epidemic-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/epidemicsolution/epidemic-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,10 +19,16 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -45,50 +42,38 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2QO33B6vzCRpvH7mIv9Mke5wLWx" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2QODjug87Av79aj1oI90JC3ttGj" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15527344",
-    "project.structure.side.proportion": "0.35287356",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/Juan David Colonia/OneDrive - Universidad Icesi (@icesi.edu.co)/3. TERCER SEMESTRE/Computación y Estructuras Discretas I/epidemic-solution/src/main/java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Juan David Colonia/OneDrive - Universidad Icesi (@icesi.edu.co)/3. TERCER SEMESTRE/Computación y Estructuras Discretas I/epidemic-solution/lib/gson-2.10.1.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15527344&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.35287356&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.example.epidemicsolution" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.epidemicsolution.controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Juan David Colonia\OneDrive - Universidad Icesi (@icesi.edu.co)\3. TERCER SEMESTRE\Computación y Estructuras Discretas I\epidemic-solution\src\main\resources\com\example\epidemicsolution" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GraphTest.testDijkstra">
-    <configuration name="EpidemicApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.example.epidemicsolution.EpidemicApplication" />
       <module name="epidemic-solution" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.epidemicsolution.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in epidemic-solution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epidemic-solution" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -108,61 +93,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GraphTest.testDijkstra" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epidemic-solution" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dataStructures.graph.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dataStructures.graph" />
-      <option name="MAIN_CLASS_NAME" value="dataStructures.graph.GraphTest" />
-      <option name="METHOD_NAME" value="testDijkstra" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="epidemic-solution1" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="epidemic-solution1" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GraphTest.testDijkstra" />
         <item itemvalue="JUnit.GraphTest" />
-        <item itemvalue="Application.EpidemicApplication" />
-        <item itemvalue="JUnit.All in epidemic-solution" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4851e3ad-e278-4bd0-ace4-80d14fcd9fba" name="Changes" comment="" />
-      <created>1685210600973</created>
+      <changelist id="b8825d48-d110-4b1d-9369-217d9b92488c" name="Changes" comment="" />
+      <created>1685215876706</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1685210600973</updated>
-      <workItem from="1685474876587" duration="3540000" />
+      <updated>1685215876706</updated>
     </task>
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="First part of dijkstra implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="First part of dijkstra implementation" />
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/epidemic_solution$Main.ic" NAME="Main Coverage Results" MODIFIED="1685235181082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
