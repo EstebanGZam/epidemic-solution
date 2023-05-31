@@ -66,16 +66,16 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
 	}
 
 	@Override
-	public void deleteEdge(K keyVertex1, K keyVertex2, int weight) throws GraphException {
+	public void deleteEdge(K keyVertex1, K keyVertex2) throws GraphException {
 		verifyExistence(keyVertex1, keyVertex2);
 		int va = vertexNumber(keyVertex1);
 		int vb = vertexNumber(keyVertex2);
 		if (adjacencyMatrix[va][vb].size() > 0) {
-			adjacencyMatrix[va][vb].remove((Integer) weight);
-			edges.removeIf(edge -> edge.start().getKey().compareTo(keyVertex1) == 0 && edge.destination().getKey().compareTo(keyVertex2) == 0 && edge.weight() == weight);
+			adjacencyMatrix[va][vb].remove(0);
+			edges.removeIf(edge -> edge.start().getKey().compareTo(keyVertex1) == 0 && edge.destination().getKey().compareTo(keyVertex2) == 0);
 			if (!isDirected) {
-				adjacencyMatrix[vb][va].remove((Integer) weight);
-				edges.removeIf(edge -> edge.start().getKey().compareTo(keyVertex2) == 0 && edge.destination().getKey().compareTo(keyVertex1) == 0 && edge.weight() == weight);
+				adjacencyMatrix[vb][va].remove(0);
+				edges.removeIf(edge -> edge.start().getKey().compareTo(keyVertex2) == 0 && edge.destination().getKey().compareTo(keyVertex1) == 0);
 			}
 		}
 	}

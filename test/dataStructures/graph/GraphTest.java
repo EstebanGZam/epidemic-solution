@@ -346,8 +346,8 @@ public class GraphTest {
 	@Test
 	public void testDeleteEdge1() {
 		setupStagePseudoGraph();
-		pseudoGraph.deleteEdge("1", "1", 1);
-		pseudoGraph.deleteEdge("1", "5", 1);
+		pseudoGraph.deleteEdge("1", "1");
+		pseudoGraph.deleteEdge("1", "5");
 		Assertions.assertFalse(pseudoGraph.adjacent("1", "1"));
 		Assertions.assertFalse(pseudoGraph.adjacent("1", "5"));
 		Assertions.assertFalse(pseudoGraph.adjacent("5", "1"));
@@ -358,8 +358,8 @@ public class GraphTest {
 	@Test
 	public void testDeleteEdge2() {
 		setupStageDirectedGraph();
-		directedGraph1.deleteEdge(1, 2, 1);
-		directedGraph1.deleteEdge(1, 3, 1);
+		directedGraph1.deleteEdge(1, 2);
+		directedGraph1.deleteEdge(1, 3);
 		Assertions.assertFalse(directedGraph1.adjacent(1, 2));
 		Assertions.assertFalse(directedGraph1.adjacent(1, 3));
 
@@ -371,7 +371,7 @@ public class GraphTest {
 	@Test
 	public void testDeleteEdge3() {
 		setupStagePseudoGraph();
-		Assertions.assertThrows(GraphException.class, () -> pseudoGraph.deleteEdge("1", "9", 1));
+		Assertions.assertThrows(GraphException.class, () -> pseudoGraph.deleteEdge("1", "9"));
 	}
 
 	// adjacent() method

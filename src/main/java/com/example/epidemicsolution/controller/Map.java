@@ -114,7 +114,7 @@ public class Map {
 		// Check that they are adjacent vertices
 		if (map.adjacent(idCity1, idCity2)) {
 			// Update the suppliesUsed value of the route between the cities
-//			map.deleteEdge(idCity1, idCity2); ///////////// ARREGLAARRRRRRRRRRR
+			map.deleteEdge(idCity1, idCity2);
 			map.insertEdge(idCity1, idCity2, suppliesUsed);
 			// Update the tooltip of the line with the new value of suppliesUsed
 			Line line = lines.get(idCity1 + idCity2);

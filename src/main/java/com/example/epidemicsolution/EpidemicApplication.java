@@ -4,11 +4,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class EpidemicApplication extends Application {
 
@@ -23,7 +22,7 @@ public class EpidemicApplication extends Application {
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = new Stage();
             stage.setTitle("Epidemic");
-            stage.getIcons().add(new Image("file:" + EpidemicApplication.class.getResource("image/logo.png").getPath()));
+            stage.getIcons().add(new Image("file:" + Objects.requireNonNull(EpidemicApplication.class.getResource("image/logo.png")).getPath()));
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {

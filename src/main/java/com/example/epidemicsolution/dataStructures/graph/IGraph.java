@@ -52,7 +52,7 @@ public interface IGraph<K extends Comparable<K>, E> {
 	 * @param keyVertex2 the key of the second vertex
 	 * @throws GraphException if the vertices are not found or there is no edge between them
 	 */
-	void deleteEdge(K keyVertex1, K keyVertex2, int weight) throws GraphException;
+	void deleteEdge(K keyVertex1, K keyVertex2) throws GraphException;
 
 	/**
 	 * Checks whether there is an edge between the vertices with the specified keys in the graph.

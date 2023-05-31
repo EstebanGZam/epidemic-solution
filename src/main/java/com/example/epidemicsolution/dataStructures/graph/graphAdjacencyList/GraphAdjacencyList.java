@@ -56,15 +56,15 @@ public class GraphAdjacencyList<K extends Comparable<K>, E> extends Graph<K, E> 
 	}
 
 	@Override
-	public void deleteEdge(K keyVertex1, K keyVertex2, int weight) throws GraphException {
+	public void deleteEdge(K keyVertex1, K keyVertex2) throws GraphException {
 		VertexAdjacentList<K, E> v1 = vertexes.get(keyVertex1);
 		VertexAdjacentList<K, E> v2 = vertexes.get(keyVertex2);
 		if (v1 == null || v2 == null) throw new GraphException("Vertex not found");
 		edges.removeIf(edge -> edge.destination().getKey().compareTo(keyVertex2) == 0
-				|| edge.destination().getKey().compareTo(keyVertex1) == 0 && edge.weight() == weight);
-		v1.getAdjacentList().removeIf(edge -> edge.destination().getKey().compareTo(keyVertex2) == 0 && edge.weight() == weight);
+				|| edge.destination().getKey().compareTo(keyVertex1) == 0);
+		v1.getAdjacentList().removeIf(edge -> edge.destination().getKey().compareTo(keyVertex2) == 0);
 		if (!isDirected)
-			v2.getAdjacentList().removeIf(edge -> edge.destination().getKey().compareTo(keyVertex1) == 0 && edge.weight() == weight);
+			v2.getAdjacentList().removeIf(edge -> edge.destination().getKey().compareTo(keyVertex1) == 0);
 	}
 
 	@Override
