@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8825d48-d110-4b1d-9369-217d9b92488c" name="Changes" comment="Kruskal algorithm implementation">
+    <list default="true" id="b8825d48-d110-4b1d-9369-217d9b92488c" name="Changes" comment="Added two tests for Dijkstra">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/dataStructures/graph/GraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/dataStructures/graph/GraphTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,25 +78,10 @@
       <recent name="C:\Users\Juan David Colonia\OneDrive - Universidad Icesi (@icesi.edu.co)\3. TERCER SEMESTRE\Computación y Estructuras Discretas I\epidemic-solution\src\main\resources\com\example\epidemicsolution" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GraphTest.testKruskal">
+  <component name="RunManager" selected="JUnit.GraphTest.testDijkstra2">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.example.epidemicsolution.EpidemicApplication" />
       <module name="epidemic-solution" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GraphTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="epidemic-solution" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dataStructures.graph.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dataStructures.graph" />
-      <option name="MAIN_CLASS_NAME" value="dataStructures.graph.GraphTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -110,6 +97,22 @@
       <option name="PACKAGE_NAME" value="dataStructures.graph" />
       <option name="MAIN_CLASS_NAME" value="dataStructures.graph.GraphTest" />
       <option name="METHOD_NAME" value="testDijkstra" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GraphTest.testDijkstra1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epidemic-solution" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataStructures.graph.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataStructures.graph" />
+      <option name="MAIN_CLASS_NAME" value="dataStructures.graph.GraphTest" />
+      <option name="METHOD_NAME" value="testDijkstra1" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -165,11 +168,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GraphTest.testDijkstra2" />
+        <item itemvalue="JUnit.GraphTest.testDijkstra1" />
+        <item itemvalue="JUnit.GraphTest.testDijkstra" />
         <item itemvalue="JUnit.GraphTest.testKruskal" />
         <item itemvalue="JUnit.GraphTest.testDijkstra3" />
-        <item itemvalue="JUnit.GraphTest.testDijkstra" />
-        <item itemvalue="JUnit.GraphTest.testDijkstra2" />
-        <item itemvalue="JUnit.GraphTest" />
       </list>
     </recent_temporary>
   </component>
@@ -190,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685503639003</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added two tests for Dijkstra">
+      <created>1685512972518</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685512972518</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,7 +219,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Kruskal algorithm implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kruskal algorithm implementation" />
+    <MESSAGE value="Added two tests for Dijkstra" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added two tests for Dijkstra" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/epidemic_solution$Main.ic" NAME="Main Coverage Results" MODIFIED="1685235181082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

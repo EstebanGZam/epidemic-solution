@@ -528,7 +528,7 @@ public class GraphTest {
 	}
 
 	@Test
-	public void testDijkstra() {
+	public void testDijkstra1() {
 		// Note: This test is based on the slides only. It is not completed.
 //		GraphAdjacencyList<String, String> g = new GraphAdjacencyList<>(GraphType.SIMPLE);
 		GraphAdjacencyMatrix<String, String> g = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
@@ -545,13 +545,14 @@ public class GraphTest {
 		g.insertEdge("b", "e", 3);
 		g.insertEdge("c", "z", 2);
 		g.insertEdge("e", "z", 1);
-		System.out.println(g.dijkstra("a"));
+		ArrayList<Integer> distances = new ArrayList<>(Arrays.asList(0, 4, 7, 2, 5, 6));
+		assertEquals(distances, g.dijkstra("a"));
 	}
 
 	@Test
 	public void testDijkstra2() {
 		setupStageSimpleGraph();
-		ArrayList<Integer> distances = new ArrayList<>(Arrays.asList(0, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647));
+		ArrayList<Integer> distances = new ArrayList<>(Arrays.asList(0, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE));
 		assertEquals(distances, simpleGraph.dijkstra(1));
 	}
 
