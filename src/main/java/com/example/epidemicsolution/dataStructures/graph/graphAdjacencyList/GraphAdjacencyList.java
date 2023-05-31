@@ -1,18 +1,12 @@
 package com.example.epidemicsolution.dataStructures.graph.graphAdjacencyList;
 
-import com.example.epidemicsolution.dataStructures.graph.Edge;
-import com.example.epidemicsolution.dataStructures.graph.Graph;
-import com.example.epidemicsolution.dataStructures.graph.GraphType;
-import com.example.epidemicsolution.dataStructures.graph.Vertex;
+import com.example.epidemicsolution.dataStructures.graph.*;
 import com.example.epidemicsolution.exception.GraphException;
-import com.example.epidemicsolution.dataStructures.graph.Color;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class GraphAdjacencyList<K extends Comparable<K>, E> extends Graph<K, E> {
-
 	private final HashMap<K, VertexAdjacentList<K, E>> vertexes;
 
 	public GraphAdjacencyList(GraphType graphType) {
@@ -43,7 +37,7 @@ public class GraphAdjacencyList<K extends Comparable<K>, E> extends Graph<K, E> 
 	}
 
 	@Override
-	public void insertEdge(K key1, K key2, double weight) throws GraphException {
+	public void insertEdge(K key1, K key2, int weight) throws GraphException {
 		VertexAdjacentList<K, E> v1 = vertexes.get(key1);
 		VertexAdjacentList<K, E> v2 = vertexes.get(key2);
 		if (v1 == null || v2 == null) throw new GraphException("Vertex not found");
@@ -62,14 +56,15 @@ public class GraphAdjacencyList<K extends Comparable<K>, E> extends Graph<K, E> 
 	}
 
 	@Override
-	public void deleteEdge(K keyVertex1, K keyVertex2) throws GraphException {
+	public void deleteEdge(K keyVertex1, K keyVertex2, int weight) throws GraphException {
 		VertexAdjacentList<K, E> v1 = vertexes.get(keyVertex1);
 		VertexAdjacentList<K, E> v2 = vertexes.get(keyVertex2);
 		if (v1 == null || v2 == null) throw new GraphException("Vertex not found");
 		edges.removeIf(edge -> edge.destination().getKey().compareTo(keyVertex2) == 0
-				|| edge.destination().getKey().compareTo(keyVertex1) == 0);
-		v1.getAdjacentList().removeIf(edge -> edge.destination().getKey().compareTo(keyVertex2) == 0);
-		if (!isDirected) v2.getAdjacentList().removeIf(edge -> edge.destination().getKey().compareTo(keyVertex1) == 0);
+				|| edge.destination().getKey().compareTo(keyVertex1) == 0 && edge.weight() == weight);
+		v1.getAdjacentList().removeIf(edge -> edge.destination().getKey().compareTo(keyVertex2) == 0 && edge.weight() == weight);
+		if (!isDirected)
+			v2.getAdjacentList().removeIf(edge -> edge.destination().getKey().compareTo(keyVertex1) == 0 && edge.weight() == weight);
 	}
 
 	@Override
@@ -145,6 +140,35 @@ public class GraphAdjacencyList<K extends Comparable<K>, E> extends Graph<K, E> 
 		u.setColor(Color.BLACK);
 		time++;
 		u.setFinishTime(time);
+	}
+
+	@Override
+	public ArrayList<Integer> dijkstra(K keyVertexSource) {
+		vertexes.get(keyVertexSource).setDistance(0);
+		PriorityQueue<VertexAdjacentList<K, E>> priorityQueue = new PriorityQueue<>(Comparator.comparing(Vertex<K, E>::getDistance));
+		for (VertexAdjacentList<K, E> vertex : vertexes.values()) {
+			if (vertex.getKey().compareTo(keyVertexSource) != 0)
+				vertex.setDistance(Integer.MAX_VALUE);
+			vertex.setPredecessor(null);
+			priorityQueue.offer(vertex);
+		}
+		while (!priorityQueue.isEmpty()) {
+			VertexAdjacentList<K, E> u = priorityQueue.poll();
+			for (Edge<K, E> edge : u.getAdjacentList()) {
+				VertexAdjacentList<K, E> v = (VertexAdjacentList<K, E>) edge.destination();
+				int alt = u.getDistance() + edge.weight();
+				if (alt < v.getDistance()) {
+					v.setDistance(alt);
+					v.setPredecessor(u);
+					priorityQueue.offer(v);
+				}
+			}
+		}
+		return vertexes.values().stream().map(Vertex::getDistance).collect(Collectors.toCollection(ArrayList::new));
+	}
+
+	public ArrayList<Edge<K, E>> kruskal() {
+		return super.kruskal(vertexes.size());
 	}
 
 }

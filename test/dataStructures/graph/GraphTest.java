@@ -1,8 +1,6 @@
 package dataStructures.graph;
 
-import com.example.epidemicsolution.dataStructures.graph.GraphType;
-import com.example.epidemicsolution.dataStructures.graph.IGraph;
-import com.example.epidemicsolution.dataStructures.graph.Vertex;
+import com.example.epidemicsolution.dataStructures.graph.*;
 import com.example.epidemicsolution.dataStructures.graph.graphAdjacencyList.GraphAdjacencyList;
 import com.example.epidemicsolution.dataStructures.graph.graphAdjacencyMatrix.GraphAdjacencyMatrix;
 import com.example.epidemicsolution.exception.GraphException;
@@ -211,7 +209,6 @@ public class GraphTest {
 		multiGraphDirected.insertVertex(3, "C");
 		multiGraphDirected.insertVertex(4, "D");
 		multiGraphDirected.insertVertex(5, "E");
-//		Assertions.assertEquals(5, multiGraphDirectedListAdjacency.size());
 
 		Assertions.assertEquals("A", multiGraphDirected.getVertex(1).getElement());
 		Assertions.assertEquals("B", multiGraphDirected.getVertex(2).getElement());
@@ -349,8 +346,8 @@ public class GraphTest {
 	@Test
 	public void testDeleteEdge1() {
 		setupStagePseudoGraph();
-		pseudoGraph.deleteEdge("1", "1");
-		pseudoGraph.deleteEdge("1", "5");
+		pseudoGraph.deleteEdge("1", "1", 1);
+		pseudoGraph.deleteEdge("1", "5", 1);
 		Assertions.assertFalse(pseudoGraph.adjacent("1", "1"));
 		Assertions.assertFalse(pseudoGraph.adjacent("1", "5"));
 		Assertions.assertFalse(pseudoGraph.adjacent("5", "1"));
@@ -361,8 +358,8 @@ public class GraphTest {
 	@Test
 	public void testDeleteEdge2() {
 		setupStageDirectedGraph();
-		directedGraph1.deleteEdge(1, 2);
-		directedGraph1.deleteEdge(1, 3);
+		directedGraph1.deleteEdge(1, 2, 1);
+		directedGraph1.deleteEdge(1, 3, 1);
 		Assertions.assertFalse(directedGraph1.adjacent(1, 2));
 		Assertions.assertFalse(directedGraph1.adjacent(1, 3));
 
@@ -374,7 +371,7 @@ public class GraphTest {
 	@Test
 	public void testDeleteEdge3() {
 		setupStagePseudoGraph();
-		Assertions.assertThrows(GraphException.class, () -> pseudoGraph.deleteEdge("1", "9"));
+		Assertions.assertThrows(GraphException.class, () -> pseudoGraph.deleteEdge("1", "9", 1));
 	}
 
 	// adjacent() method
@@ -560,6 +557,27 @@ public class GraphTest {
 		Assertions.assertEquals(12, ver_w.getFinishTime());
 		Assertions.assertEquals(11, ver_z.getFinishTime());
 
+	}
+
+	@Test
+	public void testDijkstra() {
+		// Note: This test is based on the slides only. It is not completed.
+//		GraphAdjacencyList<String, String> g = new GraphAdjacencyList<>(GraphType.SIMPLE);
+		GraphAdjacencyMatrix<String, String> g = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
+		g.insertVertex("a", "a");
+		g.insertVertex("b", "b");
+		g.insertVertex("c", "c");
+		g.insertVertex("d", "d");
+		g.insertVertex("e", "e");
+		g.insertVertex("z", "z");
+		g.insertEdge("a", "b", 4);
+		g.insertEdge("a", "d", 2);
+		g.insertEdge("d", "e", 3);
+		g.insertEdge("b", "c", 3);
+		g.insertEdge("b", "e", 3);
+		g.insertEdge("c", "z", 2);
+		g.insertEdge("e", "z", 1);
+		System.out.println(g.dijkstra("a"));
 	}
 
 }
