@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8825d48-d110-4b1d-9369-217d9b92488c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/controller/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/controller/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/IGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/IGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyList/GraphAdjacencyList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyList/GraphAdjacencyList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyMatrix/GraphAdjacencyMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyMatrix/GraphAdjacencyMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/dataStructures/graph/GraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/dataStructures/graph/GraphTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="b8825d48-d110-4b1d-9369-217d9b92488c" name="Changes" comment="Kruskal algorithm implementation" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -136,12 +127,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1685215876706</updated>
-      <workItem from="1685501581148" duration="1988000" />
+      <workItem from="1685501581148" duration="2327000" />
     </task>
+    <task id="LOCAL-00001" summary="Kruskal algorithm implementation">
+      <created>1685503639003</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685503639003</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Kruskal algorithm implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kruskal algorithm implementation" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/epidemic_solution$Main.ic" NAME="Main Coverage Results" MODIFIED="1685235181082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
