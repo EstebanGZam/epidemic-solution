@@ -188,7 +188,6 @@ public class GraphTest {
 		setupStageMultiGraphDirected();
 
 		multiGraphDirected.insertVertex(1, "A");
-//		Assertions.assertEquals(1, multiGraphDirectedListAdjacency.size());
 
 		Assertions.assertEquals("A", multiGraphDirected.getVertex(1).getElement());
 	}
@@ -529,7 +528,6 @@ public class GraphTest {
 
 	@Test
 	public void testDijkstra1() {
-		// Note: This test is based on the slides only. It is not completed.
 //		GraphAdjacencyList<String, String> g = new GraphAdjacencyList<>(GraphType.SIMPLE);
 		GraphAdjacencyMatrix<String, String> g = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
 		g.insertVertex("a", "a");

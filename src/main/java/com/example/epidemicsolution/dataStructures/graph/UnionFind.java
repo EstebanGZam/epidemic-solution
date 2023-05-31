@@ -10,14 +10,14 @@ public class UnionFind {
 		}
 	}
 
-	public int find(int x) {
-		if (parent[x] != x) parent[x] = find(parent[x]);
-		return parent[x];
+	public int find(int a) {
+		if (parent[a] != a) parent[a] = find(parent[a]);
+		return parent[a];
 	}
 
-	public void union(int x, int y) {
-		int rootX = find(x);
-		int rootY = find(y);
+	public void union(int a, int b) {
+		int rootX = find(a);
+		int rootY = find(b);
 		if (rootX != rootY) parent[rootX] = rootY;
 	}
 
