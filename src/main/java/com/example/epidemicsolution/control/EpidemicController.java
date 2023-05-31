@@ -47,6 +47,7 @@ public class EpidemicController implements Initializable {
 
     @FXML
     void updateRoute(ActionEvent event) {
+        map.resetColorLines();
         if (selectedRadioButton1 == null || selectedRadioButton2 == null) {
             showAlert("Please select two cities.");
             return;
@@ -68,12 +69,29 @@ public class EpidemicController implements Initializable {
 
     @FXML
     void distanceBetweenTwoCities(ActionEvent event) {
+        map.resetColorLines();
         if (selectedRadioButton1 != null && selectedRadioButton2 != null) {
             int distanceBetweenTwoCities = map.distanceBetweenTwoCities(selectedRadioButton1, selectedRadioButton2);
             System.out.println(distanceBetweenTwoCities);
         } else {
             showAlert("Please select two cities.");
         }
+    }
+
+    @FXML
+    void evacuationRoute(ActionEvent event) {
+        map.resetColorLines();
+        if (selectedRadioButton1 != null && selectedRadioButton2 != null) {
+            map.evacuationRoute(selectedRadioButton1, selectedRadioButton2);
+        } else {
+            showAlert("Please select two cities.");
+        }
+    }
+
+    @FXML
+    void logisticPlanning(ActionEvent event) {
+        map.resetColorLines();
+        map.logisticPlanning();
     }
 
     private void threadRadioButton(ActionEvent event) {

@@ -1,5 +1,6 @@
 package com.example.epidemicsolution.controller;
 
+import com.example.epidemicsolution.dataStructures.graph.Edge;
 import com.example.epidemicsolution.dataStructures.graph.GraphType;
 import com.example.epidemicsolution.dataStructures.graph.IGraph;
 import com.example.epidemicsolution.dataStructures.graph.graphAdjacencyList.GraphAdjacencyList;
@@ -8,10 +9,12 @@ import com.google.gson.Gson;
 import javafx.scene.Cursor;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Tooltip;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Map {
@@ -93,6 +96,8 @@ public class Map {
 				String tooltipText = String.valueOf(route.getSuppliesUsed());
 				Tooltip tooltip = new Tooltip(tooltipText);
 				Tooltip.install(line, tooltip);
+				// Set line color
+				line.setStroke(Color.WHITE);
 				// Set line thickness
 				line.setStrokeWidth(1.5);
 				// Add the Line to the ObservableList
@@ -134,6 +139,49 @@ public class Map {
 		map.BFS(idCity1);
 		// Return the distance between the city2 and the city1
 		return map.getVertex(idCity2).getDistance() - 1;
+	}
+
+	public void evacuationRoute(RadioButton r1, RadioButton r2) {
+		// Obtain the id of each city
+		int idCity1 = (int) r1.getLayoutX() * (int) r1.getLayoutY();
+		int idCity2 = (int) r2.getLayoutX() * (int) r2.getLayoutY();
+		// Used Dijkstra
+		map.dijkstra(idCity1);
+		// Color the shortest path between cities in white
+		int currentVertex = idCity2;
+		while (map.getVertex(currentVertex).getPredecessor() != null) {
+			int predecessorVertex = map.getVertex(currentVertex).getPredecessor().getKey();
+			int edgeKey = currentVertex + predecessorVertex;
+			Line line = lines.get(edgeKey);
+			if (line != null) {
+				line.setStrokeWidth(1.5); // Set line thickness
+				line.setStroke(Color.BLACK); // Set the stroke color to white
+			}
+			currentVertex = predecessorVertex;
+		}
+	}
+
+	public void logisticPlanning() {
+		// Used Kruskal
+		ArrayList<Edge<Integer, City>> kruskalResult = map.kruskal();
+		// Color the Kruskal path
+		for (Edge<Integer, City> edge : kruskalResult) {
+			int city1 = edge.start().getKey();
+			int city2 = edge.destination().getKey();
+			int edgeKey = city1 + city2;
+			Line line = lines.get(edgeKey);
+			if (line != null) {
+				line.setStrokeWidth(1.5); // Set the thickness of the line
+				line.setStroke(Color.BLACK); // Set the stroke color to white
+			}
+		}
+	}
+
+	public void resetColorLines() {
+		for (Line line : lines.values()) {
+			line.setStroke(Color.WHITE);
+			line.setStrokeWidth(1.5);
+		}
 	}
 
 	public HashMap<Integer, RadioButton> getRadioButtons() {

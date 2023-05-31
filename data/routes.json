@@ -116,8 +116,13 @@
   },
   {
     "city1": 97042,
-    "city2": 155100,
+    "city2": 118000,
     "suppliesUsed": 95
+  },
+  {
+    "city1": 118000,
+    "city2": 155100,
+    "suppliesUsed": 43
   },
   {
     "city1": 155100,
