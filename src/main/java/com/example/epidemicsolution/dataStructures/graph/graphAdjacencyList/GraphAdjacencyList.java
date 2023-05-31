@@ -167,4 +167,8 @@ public class GraphAdjacencyList<K extends Comparable<K>, E> extends Graph<K, E> 
 		return vertexes.values().stream().map(Vertex::getDistance).collect(Collectors.toCollection(ArrayList::new));
 	}
 
+	public ArrayList<Edge<K, E>> kruskal() {
+		return super.kruskal(vertexes.size());
+	}
+
 }

@@ -1,19 +1,13 @@
 package com.example.epidemicsolution.dataStructures.graph.graphAdjacencyMatrix;
 
-import com.example.epidemicsolution.dataStructures.graph.Graph;
-import com.example.epidemicsolution.dataStructures.graph.GraphType;
-import com.example.epidemicsolution.dataStructures.graph.Vertex;
+import com.example.epidemicsolution.dataStructures.graph.*;
 import com.example.epidemicsolution.exception.GraphException;
-import com.example.epidemicsolution.dataStructures.graph.Color;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E> {
-
-	private final HashMap<K, Integer> vertexesIndex;
-	private final HashMap<Integer, Vertex<K, E>> vertexes;
-	private int currentVertexNumber;
+	private final HashMap<K, Vertex<K, E>> vertexes;
 	private static final int maxVertexes = 50;
 	private final ArrayList<Integer>[][] adjacencyMatrix;
 
@@ -24,8 +18,6 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
 	public GraphAdjacencyMatrix(int maxVertex, GraphType graphType) {
 		super(graphType);
 		this.vertexes = new HashMap<>();
-		this.currentVertexNumber = 0;
-		this.vertexesIndex = new HashMap<>();
 		adjacencyMatrix = new ArrayList[maxVertex][maxVertex];
 		for (int i = 0; i < maxVertex; i++)
 			for (int j = 0; j < maxVertex; j++)
@@ -34,17 +26,17 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
 
 	@Override
 	public void insertVertex(K key, E element) {
-		if (vertexesIndex.get(key) == null) {
-			vertexesIndex.put(key, currentVertexNumber);
-			vertexes.put(currentVertexNumber++, new Vertex<>(key, element));
+		if (vertexes.get(key) == null) {
+			vertexes.put(key, new Vertex<>(key, element));
+			vertexesIndex.put(key, currentVertexNumber++);
 		}
 	}
 
 	@Override
 	public void deleteVertex(K keyVertex) {
-		Vertex<K, E> v = vertexes.remove(vertexNumber(keyVertex));
+		Vertex<K, E> v = vertexes.remove(keyVertex);
 		if (v != null) {
-			int vertexIndex = vertexesIndex.get(v.getKey());
+			int vertexIndex = vertexNumber(keyVertex);
 			for (int i = 0; i < maxVertexes; i++) {
 				adjacencyMatrix[vertexIndex][i] = new ArrayList<>();
 				adjacencyMatrix[i][vertexIndex] = new ArrayList<>();
@@ -54,33 +46,37 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
 
 	@Override
 	public Vertex<K, E> getVertex(K keyVertex) {
-		return vertexes.get(vertexNumber(keyVertex));
+		return vertexes.get(keyVertex);
 	}
 
 	@Override
 	public void insertEdge(K keyVertex1, K keyVertex2, int weight) throws GraphException {
 		verifyExistence(keyVertex1, keyVertex2);
-		int va = vertexesIndex.get(keyVertex1);
-		int vb = vertexesIndex.get(keyVertex2);
+		int va = vertexNumber(keyVertex1);
+		int vb = vertexNumber(keyVertex2);
 		if (!loops && va == vb) throw new GraphException("This type of graph does not support loops.");
 		if (!multipleEdges && adjacencyMatrix[va][vb].size() > 0)
 			throw new GraphException("This type of graph does not support multiple edges.");
-//		edges.add(new Edge<>(vertexes.get(va), vertexes.get(vb), weight));
 		adjacencyMatrix[va][vb].add(weight);
+		Collections.sort(adjacencyMatrix[va][vb]);
 		if (!isDirected) {
-//			edges.add(new Edge<>(vertexes.get(vb), vertexes.get(va), weight));
 			adjacencyMatrix[vb][va].add(weight);
+			Collections.sort(adjacencyMatrix[vb][va]);
 		}
 	}
 
 	@Override
 	public void deleteEdge(K keyVertex1, K keyVertex2, int weight) throws GraphException {
 		verifyExistence(keyVertex1, keyVertex2);
-		int va = vertexesIndex.get(keyVertex1);
-		int vb = vertexesIndex.get(keyVertex2);
+		int va = vertexNumber(keyVertex1);
+		int vb = vertexNumber(keyVertex2);
 		if (adjacencyMatrix[va][vb].size() > 0) {
-			adjacencyMatrix[va][vb].remove(weight);
-			if (!isDirected) adjacencyMatrix[vb][va].remove(weight);
+			adjacencyMatrix[va][vb].remove((Integer) weight);
+			edges.removeIf(edge -> edge.start().getKey().compareTo(keyVertex1) == 0 && edge.destination().getKey().compareTo(keyVertex2) == 0 && edge.weight() == weight);
+			if (!isDirected) {
+				adjacencyMatrix[vb][va].remove((Integer) weight);
+				edges.removeIf(edge -> edge.start().getKey().compareTo(keyVertex2) == 0 && edge.destination().getKey().compareTo(keyVertex1) == 0 && edge.weight() == weight);
+			}
 		}
 	}
 
@@ -92,13 +88,12 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
 
 	@Override
 	public void BFS(K keyVertex) {
-		for (Integer key : vertexes.keySet()) {
-			Vertex<K, E> u = vertexes.get(key);
+		for (Vertex<K, E> u : vertexes.values()) {
 			u.setColor(Color.WHITE);
 			u.setDistance(Integer.MAX_VALUE);
 			u.setPredecessor(null);
 		}
-		Vertex<K, E> s = vertexes.get(vertexNumber(keyVertex));
+		Vertex<K, E> s = vertexes.get(keyVertex);
 		s.setColor(Color.GRAY);
 		s.setDistance(0);
 
@@ -107,16 +102,12 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
 
 		while (!queue.isEmpty()) {
 			Vertex<K, E> u = queue.poll();
-			int uIndex = vertexNumber(u.getKey());
-			for (int i = 0; i < maxVertexes; i++) {
-				if (adjacencyMatrix[uIndex][i].size() > 0) {
-					Vertex<K, E> v = vertexes.get(i);
-					if (v.getColor() == Color.WHITE) {
-						v.setColor(Color.GRAY);
-						v.setDistance(u.getDistance() + 1);
-						v.setPredecessor(u);
-						queue.offer(v);
-					}
+			for (Vertex<K, E> vertex : vertexes.values()) {
+				if (adjacent(u.getKey(), vertex.getKey()) && vertex.getColor() == Color.WHITE) {
+					vertex.setColor(Color.GRAY);
+					vertex.setDistance(u.getDistance() + 1);
+					vertex.setPredecessor(u);
+					queue.offer(vertex);
 				}
 			}
 			u.setColor(Color.BLACK);
@@ -125,14 +116,12 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
 
 	@Override
 	public void DFS() {
-		for (Integer key : vertexes.keySet()) {
-			Vertex<K, E> u = vertexes.get(key);
+		for (Vertex<K, E> u : vertexes.values()) {
 			u.setColor(Color.WHITE);
 			u.setPredecessor(null);
 		}
 		time = 0;
-		for (Integer key : vertexes.keySet()) {
-			Vertex<K, E> u = vertexes.get(key);
+		for (Vertex<K, E> u : vertexes.values()) {
 			if (u.getColor() == Color.WHITE) {
 				dfsVisit(u);
 			}
@@ -143,15 +132,10 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
 		time++;
 		u.setDiscoveryTime(time);
 		u.setColor(Color.GRAY);
-
-		int uIndex = vertexNumber(u.getKey());
-		for (int i = 0; i < maxVertexes; i++) {
-			if (adjacencyMatrix[uIndex][i].size() > 0) {
-				Vertex<K, E> v = vertexes.get(i);
-				if (v.getColor() == Color.WHITE) {
-					v.setPredecessor(u);
-					dfsVisit(v);
-				}
+		for (Vertex<K, E> vertex : vertexes.values()) {
+			if (adjacent(u.getKey(), vertex.getKey()) && vertex.getColor() == Color.WHITE) {
+				vertex.setPredecessor(u);
+				dfsVisit(vertex);
 			}
 		}
 		u.setColor(Color.BLACK);
@@ -160,19 +144,17 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
 	}
 
 	private void verifyExistence(K keyVertex1, K keyVertex2) throws GraphException {
-		Vertex<K, E> v1 = vertexes.get(vertexNumber(keyVertex1));
-		Vertex<K, E> v2 = vertexes.get(vertexNumber(keyVertex2));
+		Vertex<K, E> v1 = vertexes.get(keyVertex1);
+		Vertex<K, E> v2 = vertexes.get(keyVertex2);
 		if (v1 == null || v2 == null) throw new GraphException("Vertex not found");
-	}
-
-	private int vertexNumber(K keyVertex) {
-		Integer index = vertexesIndex.get(keyVertex);
-		return index == null ? -1 : index;
 	}
 
 	@Override
 	public ArrayList<Integer> dijkstra(K keyVertexSource) {
-		vertexes.get(vertexNumber(keyVertexSource)).setDistance(0);
+		if (vertexes.get(keyVertexSource) == null) {
+			throw new GraphException("Source vertex not found.");
+		}
+		vertexes.get(keyVertexSource).setDistance(0);
 		PriorityQueue<Vertex<K, E>> priorityQueue = new PriorityQueue<>(Comparator.comparing(Vertex<K, E>::getDistance));
 		for (Vertex<K, E> vertex : vertexes.values()) {
 			if (vertex.getKey().compareTo(keyVertexSource) != 0)
@@ -182,20 +164,22 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
 		}
 		while (!priorityQueue.isEmpty()) {
 			Vertex<K, E> u = priorityQueue.poll();
-			for (int i = 0; i < maxVertexes; i++) {
-				int uIndex = vertexNumber(u.getKey());
-				if (adjacencyMatrix[uIndex][i].size() > 0) {
-					Vertex<K, E> v = vertexes.get(i);
-					int alt = u.getDistance() + adjacencyMatrix[uIndex][i].get(0);
-					if (alt < v.getDistance()) {
-						v.setDistance(alt);
-						v.setPredecessor(u);
-						priorityQueue.offer(v);
+			for (Vertex<K, E> vertex : vertexes.values()) {
+				if (adjacent(u.getKey(), vertex.getKey())) {
+					int alt = u.getDistance() + adjacencyMatrix[vertexNumber(u.getKey())][vertexNumber(vertex.getKey())].get(0);
+					if (alt < vertex.getDistance()) {
+						vertex.setDistance(alt);
+						vertex.setPredecessor(u);
+						priorityQueue.offer(vertex);
 					}
 				}
 			}
 		}
 		return vertexes.values().stream().map(Vertex::getDistance).collect(Collectors.toCollection(ArrayList::new));
+	}
+
+	public ArrayList<Edge<K, E>> kruskal() {
+		return super.kruskal(vertexes.size());
 	}
 
 }

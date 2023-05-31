@@ -29,8 +29,8 @@ public class GraphTest {
 	private IGraph<Integer, String> multiGraphDirected;
 
 	private void setupStageSimpleGraph() {
-//		simpleGraph = new GraphAdjacencyList<>(GraphType.SIMPLE);
-		simpleGraph = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
+		simpleGraph = new GraphAdjacencyList<>(GraphType.SIMPLE);
+//		simpleGraph = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
 		// Insert vertexes in the graph
 		simpleGraph.insertVertex(1, "A");
 		simpleGraph.insertVertex(2, "B");
@@ -43,8 +43,8 @@ public class GraphTest {
 	}
 
 	private void setupStagePseudoGraph() {
-//		pseudoGraph = new GraphAdjacencyList<>(GraphType.PSEUDOGRAPH);
-		pseudoGraph = new GraphAdjacencyMatrix<>(GraphType.PSEUDOGRAPH);
+		pseudoGraph = new GraphAdjacencyList<>(GraphType.PSEUDOGRAPH);
+//		pseudoGraph = new GraphAdjacencyMatrix<>(GraphType.PSEUDOGRAPH);
 		// Insert vertexes in the graph
 		pseudoGraph.insertVertex("1", 1);
 		pseudoGraph.insertVertex("2", 2);
@@ -65,8 +65,8 @@ public class GraphTest {
 	}
 
 	private void setupStageMultiGraph() {
-//		multiGraph = new GraphAdjacencyList<>(GraphType.MULTIGRAPH);
-		multiGraph = new GraphAdjacencyMatrix<>(GraphType.MULTIGRAPH);
+		multiGraph = new GraphAdjacencyList<>(GraphType.MULTIGRAPH);
+//		multiGraph = new GraphAdjacencyMatrix<>(GraphType.MULTIGRAPH);
 		multiGraph.insertVertex(1, "1");
 		multiGraph.insertVertex(2, "2");
 		multiGraph.insertVertex(3, "3");
@@ -88,8 +88,8 @@ public class GraphTest {
 	}
 
 	private void setupStageDirectedGraph() {
-//		directedGraph1 = new GraphAdjacencyList<>(GraphType.DIRECTED);
-		directedGraph1 = new GraphAdjacencyMatrix<>(GraphType.DIRECTED);
+		directedGraph1 = new GraphAdjacencyList<>(GraphType.DIRECTED);
+//		directedGraph1 = new GraphAdjacencyMatrix<>(GraphType.DIRECTED);
 		directedGraph1.insertVertex(1, "1");
 		directedGraph1.insertVertex(2, "2");
 		directedGraph1.insertVertex(3, "3");
@@ -132,13 +132,13 @@ public class GraphTest {
 
 
 	private void setupStageMultiGraphDirected() {
-//		multiGraphDirected = new GraphAdjacencyList<>(GraphType.MULTIGRAPH_DIRECTED);
-		multiGraphDirected = new GraphAdjacencyMatrix<>(GraphType.MULTIGRAPH_DIRECTED);
+		multiGraphDirected = new GraphAdjacencyList<>(GraphType.MULTIGRAPH_DIRECTED);
+//		multiGraphDirected = new GraphAdjacencyMatrix<>(GraphType.MULTIGRAPH_DIRECTED);
 	}
 
 	private void setupStage6() {
-//		simpleGraph2 = new GraphAdjacencyList<>(GraphType.SIMPLE);
-		simpleGraph2 = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
+		simpleGraph2 = new GraphAdjacencyList<>(GraphType.SIMPLE);
+//		simpleGraph2 = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
 		simpleGraph2.insertVertex("r", "r");
 		simpleGraph2.insertVertex("s", "s");
 		simpleGraph2.insertVertex("t", "t");
@@ -151,8 +151,8 @@ public class GraphTest {
 	}
 
 	private void setupStage7() {
-//		directedGraph2 = new GraphAdjacencyList<>(GraphType.DIRECTED);
-		directedGraph2 = new GraphAdjacencyMatrix<>(GraphType.DIRECTED);
+		directedGraph2 = new GraphAdjacencyList<>(GraphType.DIRECTED);
+//		directedGraph2 = new GraphAdjacencyMatrix<>(GraphType.DIRECTED);
 
 		directedGraph2.insertVertex("u", "u");
 		directedGraph2.insertVertex("v", "v");
@@ -209,7 +209,6 @@ public class GraphTest {
 		multiGraphDirected.insertVertex(3, "C");
 		multiGraphDirected.insertVertex(4, "D");
 		multiGraphDirected.insertVertex(5, "E");
-//		Assertions.assertEquals(5, multiGraphDirectedListAdjacency.size());
 
 		Assertions.assertEquals("A", multiGraphDirected.getVertex(1).getElement());
 		Assertions.assertEquals("B", multiGraphDirected.getVertex(2).getElement());

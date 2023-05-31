@@ -84,5 +84,13 @@ public interface IGraph<K extends Comparable<K>, E> {
 	 */
 	ArrayList<Integer> dijkstra(K keyVertexSource);
 
+
+	/**
+	 * Method that implements the Kruskal's algorithm to find the minimum spanning tree.
+	 *
+	 * @return ArrayList with the edges of the minimum spanning tree
+	 */
+	ArrayList<Edge<K, E>> kruskal();
+
 }
 
