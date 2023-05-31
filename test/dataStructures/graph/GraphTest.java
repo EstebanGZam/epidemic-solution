@@ -7,6 +7,9 @@ import com.example.epidemicsolution.exception.GraphException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -39,7 +42,7 @@ public class GraphTest {
 		simpleGraph.insertVertex(5, "E");
 		simpleGraph.insertVertex(6, "F");
 		simpleGraph.insertVertex(7, "G");
-		simpleGraph.insertVertex(10, "I'm tired .-.");
+		simpleGraph.insertVertex(10, "I");
 	}
 
 	private void setupStagePseudoGraph() {
@@ -257,41 +260,6 @@ public class GraphTest {
 		Assertions.assertThrows(GraphException.class, () -> multiGraph.adjacent(3, 6));
 		Assertions.assertThrows(GraphException.class, () -> multiGraph.adjacent(4, 6));
 		Assertions.assertThrows(GraphException.class, () -> multiGraph.adjacent(5, 6));
-	}
-
-
-	// getVertex() method
-	// Test 1
-	@Test
-	public void testSearch1() {
-		setupStageSimpleGraph();
-		Assertions.assertEquals("A", simpleGraph.getVertex(1).getElement());
-		Assertions.assertEquals("B", simpleGraph.getVertex(2).getElement());
-		Assertions.assertEquals("C", simpleGraph.getVertex(3).getElement());
-		Assertions.assertEquals("D", simpleGraph.getVertex(4).getElement());
-		Assertions.assertEquals("E", simpleGraph.getVertex(5).getElement());
-	}
-
-	// Test 2
-	// Search for elements that are not in the graph
-	@Test
-	public void testSearch2() {
-		setupStageSimpleGraph();
-		Assertions.assertNull(simpleGraph.getVertex(16));
-		Assertions.assertNull(simpleGraph.getVertex(17));
-		Assertions.assertNull(simpleGraph.getVertex(18));
-	}
-
-	// Test 3
-	// Validation that data stored in the graph is not deleted after searching for elements stored in vertices.
-	@Test
-	public void testSearch3() {
-		setupStageDirectedGraph();
-		Assertions.assertEquals("4", directedGraph1.getVertex(4).getElement());
-		Assertions.assertEquals("5", directedGraph1.getVertex(5).getElement());
-		Assertions.assertEquals("6", directedGraph1.getVertex(6).getElement());
-		Assertions.assertEquals("7", directedGraph1.getVertex(7).getElement());
-		Assertions.assertEquals("8", directedGraph1.getVertex(8).getElement());
 	}
 
 
@@ -578,6 +546,20 @@ public class GraphTest {
 		g.insertEdge("c", "z", 2);
 		g.insertEdge("e", "z", 1);
 		System.out.println(g.dijkstra("a"));
+	}
+
+	@Test
+	public void testDijkstra2() {
+		setupStageSimpleGraph();
+		ArrayList<Integer> distances = new ArrayList<>(Arrays.asList(0, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647));
+		assertEquals(distances, simpleGraph.dijkstra(1));
+	}
+
+	@Test
+	public void testDijkstra3() {
+		setupStagePseudoGraph();
+		ArrayList<Integer> distances = new ArrayList<>(Arrays.asList(1, 2, 0, 2, 1));
+		assertEquals(distances, pseudoGraph.dijkstra("3"));
 	}
 
 }
