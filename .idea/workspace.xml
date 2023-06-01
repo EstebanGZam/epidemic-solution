@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e1c8c9a-1f5d-456b-a4bc-d10a42846a8e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_30_2023_10_35_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_30_2023_10_35_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_30_2023_10_38_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_30_2023_10_38_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/routes.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/routes.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/control/EpidemicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/control/EpidemicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/controller/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/controller/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/epidemicsolution/epidemic-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/epidemicsolution/epidemic-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyList/GraphAdjacencyList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyList/GraphAdjacencyList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyMatrix/GraphAdjacencyMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyMatrix/GraphAdjacencyMatrix.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,15 +39,65 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.35287356"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.35287356&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.example.epidemicsolution.EpidemicApplication" />
+      <module name="epidemic-solution" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GraphTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epidemic-solution" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataStructures.graph.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataStructures.graph" />
+      <option name="MAIN_CLASS_NAME" value="dataStructures.graph.GraphTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="dataStructures.graph in epidemic-solution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epidemic-solution" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataStructures.graph.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataStructures.graph" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.GraphTest" />
+      <item itemvalue="JUnit.dataStructures.graph in epidemic-solution" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.dataStructures.graph in epidemic-solution" />
+        <item itemvalue="JUnit.GraphTest" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -73,5 +119,20 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyList/GraphAdjacencyList.java</url>
+          <line>191</line>
+          <properties class="com.example.epidemicsolution.dataStructures.graph.graphAdjacencyList.GraphAdjacencyList" method="kruskal">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
