@@ -4,19 +4,17 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 /**
- * The {@code Graph} class represents an abstract graph data structure.
- * <p>
- * It implements the {@code IGraph} interface.
+ * The Graph class represents an abstract graph data structure.
+ * It implements the IGraph interface.
  *
- * @param <K> the type of the key used in the graph vertices, must extend {@code Comparable}
+ * @param <K> the type of the key used in the graph vertices, must extend Comparable
  * @param <E> the type of the data stored in the graph edges
  */
-
 public abstract class Graph<K extends Comparable<K>, E> implements IGraph<K, E> {
 
-    protected LinkedList<Edge<K, E>> edges; // List of edges in the graph.
-    protected int time, currentVertexNumber; // The current time value used for graph operations.
-    protected final boolean isDirected, multipleEdges, loops; // Specifies whether the graph is directed.
+    protected LinkedList<Edge<K, E>> edges;
+    protected int time, currentVertexNumber;
+    protected final boolean isDirected, multipleEdges, loops;
 
     protected final HashMap<K, Integer> vertexesIndex;
 

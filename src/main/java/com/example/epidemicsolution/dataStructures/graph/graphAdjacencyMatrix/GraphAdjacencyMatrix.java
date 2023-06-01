@@ -6,16 +6,34 @@ import com.example.epidemicsolution.exception.GraphException;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * The GraphAdjacencyMatrix class represents a graph data structure using an adjacency matrix.
+ * It extends the Graph class and provides implementations for various graph operations.
+ *
+ * @param <K> the type of the vertex key
+ * @param <E> the type of the vertex element
+ */
 public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E> {
 
     private final HashMap<K, Vertex<K, E>> vertexes;
     private static final int maxVertexes = 50;
     private final ArrayList<Integer>[][] adjacencyMatrix;
 
+    /**
+     * Creates a new instance of the GraphAdjacencyMatrix class with the specified graph type.
+     *
+     * @param graphType the type of the graph
+     */
     public GraphAdjacencyMatrix(GraphType graphType) {
         this(maxVertexes, graphType);
     }
 
+    /**
+     * Constructs a GraphAdjacencyMatrix object with the specified maximum number of vertices and graph type.
+     *
+     * @param maxVertex the maximum number of vertices allowed in the graph
+     * @param graphType the type of the graph
+     */
     public GraphAdjacencyMatrix(int maxVertex, GraphType graphType) {
         super(graphType);
         this.vertexes = new HashMap<>();
@@ -25,6 +43,12 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
                 adjacencyMatrix[i][j] = new ArrayList<>();
     }
 
+    /**
+     * Inserts a vertex with the specified key and element into the graph.
+     *
+     * @param key     the key of the vertex
+     * @param element the element of the vertex
+     */
     @Override
     public void insertVertex(K key, E element) {
         if (vertexes.get(key) == null) {
@@ -33,6 +57,11 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
         }
     }
 
+    /**
+     * Deletes the vertex with the specified key from the graph.
+     *
+     * @param keyVertex the key of the vertex to be deleted
+     */
     @Override
     public void deleteVertex(K keyVertex) {
         Vertex<K, E> v = vertexes.remove(keyVertex);
@@ -45,11 +74,25 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
         }
     }
 
+    /**
+     * Returns the vertex with the specified key.
+     *
+     * @param keyVertex the key of the vertex to retrieve
+     * @return the vertex with the specified key, or null if not found
+     */
     @Override
     public Vertex<K, E> getVertex(K keyVertex) {
         return vertexes.get(keyVertex);
     }
 
+    /**
+     * Inserts an edge between the vertices with the specified keys and the given weight into the graph.
+     *
+     * @param keyVertex1 the key of the first vertex
+     * @param keyVertex2 the key of the second vertex
+     * @param weight     the weight of the edge
+     * @throws GraphException if the graph does not support loops or multiple edges and the insertion violates this rule
+     */
     @Override
     public void insertEdge(K keyVertex1, K keyVertex2, int weight) throws GraphException {
         verifyExistence(keyVertex1, keyVertex2);
@@ -68,6 +111,13 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
         }
     }
 
+    /**
+     * Deletes the edge between the vertices with the specified keys from the graph.
+     *
+     * @param keyVertex1 the key of the first vertex
+     * @param keyVertex2 the key of the second vertex
+     * @throws GraphException if the edge does not exist between the specified vertices
+     */
     @Override
     public void deleteEdge(K keyVertex1, K keyVertex2) throws GraphException {
         verifyExistence(keyVertex1, keyVertex2);
@@ -83,12 +133,25 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
         }
     }
 
+    /**
+     * Checks whether there is an edge between the vertices with the specified keys.
+     *
+     * @param keyVertex1 the key of the first vertex
+     * @param keyVertex2 the key of the second vertex
+     * @return true if there is an edge between the vertices, false otherwise
+     * @throws GraphException if either of the vertices does not exist in the graph
+     */
     @Override
     public boolean adjacent(K keyVertex1, K keyVertex2) throws GraphException {
         verifyExistence(keyVertex1, keyVertex2);
         return adjacencyMatrix[vertexNumber(keyVertex1)][vertexNumber(keyVertex2)].size() > 0;
     }
 
+    /**
+     * Performs a Breadth-First Search starting from the vertex with the specified key.
+     *
+     * @param keyVertex the key of the starting vertex
+     */
     @Override
     public void BFS(K keyVertex) {
         for (Vertex<K, E> u : vertexes.values()) {
@@ -99,10 +162,8 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
         Vertex<K, E> s = vertexes.get(keyVertex);
         s.setColor(Color.GRAY);
         s.setDistance(0);
-
         Queue<Vertex<K, E>> queue = new LinkedList<>();
         queue.offer(s);
-
         while (!queue.isEmpty()) {
             Vertex<K, E> u = queue.poll();
             for (Vertex<K, E> vertex : vertexes.values()) {
@@ -117,41 +178,26 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
         }
     }
 
-    @Override
-    public void DFS() {
-        for (Vertex<K, E> u : vertexes.values()) {
-            u.setColor(Color.WHITE);
-            u.setPredecessor(null);
-        }
-        time = 0;
-        for (Vertex<K, E> u : vertexes.values()) {
-            if (u.getColor() == Color.WHITE) {
-                dfsVisit(u);
-            }
-        }
-    }
-
-    private void dfsVisit(Vertex<K, E> u) {
-        time++;
-        u.setDiscoveryTime(time);
-        u.setColor(Color.GRAY);
-        for (Vertex<K, E> vertex : vertexes.values()) {
-            if (adjacent(u.getKey(), vertex.getKey()) && vertex.getColor() == Color.WHITE) {
-                vertex.setPredecessor(u);
-                dfsVisit(vertex);
-            }
-        }
-        u.setColor(Color.BLACK);
-        time++;
-        u.setFinishTime(time);
-    }
-
+    /**
+     * Verifies the existence of the specified vertices in the graph.
+     *
+     * @param keyVertex1 the key of the first vertex
+     * @param keyVertex2 the key of the second vertex
+     * @throws GraphException if either of the vertices does not exist in the graph
+     */
     private void verifyExistence(K keyVertex1, K keyVertex2) throws GraphException {
         Vertex<K, E> v1 = vertexes.get(keyVertex1);
         Vertex<K, E> v2 = vertexes.get(keyVertex2);
         if (v1 == null || v2 == null) throw new GraphException("Vertex not found");
     }
 
+    /**
+     * Finds the shortest paths from a specified source vertex to all other vertices in the graph using Dijkstra's algorithm.
+     *
+     * @param keyVertexSource the key or identifier of the source vertex
+     * @return an ArrayList representing the shortest paths from the source vertex to all other vertices
+     * @throws GraphException if the source vertex does not exist in the graph
+     */
     @Override
     public ArrayList<Integer> dijkstra(K keyVertexSource) {
         if (vertexes.get(keyVertexSource) == null) {
@@ -163,12 +209,10 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
             vertex.setPredecessor(null);
         }
         vertexes.get(keyVertexSource).setDistance(0);
-
         PriorityQueue<Vertex<K, E>> priorityQueue = new PriorityQueue<>(Comparator.comparing(Vertex<K, E>::getDistance));
         for (Vertex<K, E> vertex : vertexes.values()) {
             priorityQueue.offer(vertex);
         }
-
         while (!priorityQueue.isEmpty()) {
             Vertex<K, E> u = priorityQueue.poll();
             for (Vertex<K, E> vertex : vertexes.values()) {
@@ -185,11 +229,22 @@ public class GraphAdjacencyMatrix<K extends Comparable<K>, E> extends Graph<K, E
         return vertexes.values().stream().map(Vertex::getDistance).collect(Collectors.toCollection(ArrayList::new));
     }
 
+    /**
+     * Method which returns the vertex number corresponding to a given vertex key.
+     *
+     * @param keyVertex the key of the vertex
+     * @return the vertex number corresponding to the key, or -1 if the key does not exist in the graph.
+     */
     private int vertexNumber(K keyVertex) {
         Integer index = vertexesIndex.get(keyVertex);
         return index == null ? -1 : index;
     }
 
+    /**
+     * Applies Kruskal's algorithm to find the minimum spanning tree of the graph.
+     *
+     * @return the list of edges in the minimum spanning tree.
+     */
     @Override
     public ArrayList<Edge<K, E>> kruskal() {
         ArrayList<Edge<K, E>> A = new ArrayList<>();

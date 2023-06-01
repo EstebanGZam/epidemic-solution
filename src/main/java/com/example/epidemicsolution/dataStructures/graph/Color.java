@@ -1,5 +1,11 @@
 package com.example.epidemicsolution.dataStructures.graph;
 
+/**
+ * Enumeration representing the possible colors of a vertex during the path of a graph.
+ * The colors represent the visited and explored status of a vertex.
+ */
 public enum Color {
-    WHITE, GRAY, BLACK
+    WHITE, // Not visited
+    GRAY, // Visited but not fully explored yet
+    BLACK // Visited and fully explored
 }
