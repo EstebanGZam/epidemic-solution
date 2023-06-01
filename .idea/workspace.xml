@@ -6,17 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9e1c8c9a-1f5d-456b-a4bc-d10a42846a8e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/Color.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/Edge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/GraphType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/GraphType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/IGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/IGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/UnionFind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/UnionFind.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/Vertex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyList/GraphAdjacencyList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyList/GraphAdjacencyList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyList/VertexAdjacentList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyList/VertexAdjacentList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyMatrix/GraphAdjacencyMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyMatrix/GraphAdjacencyMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/dataStructures/graph/GraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/dataStructures/graph/GraphTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/control/EpidemicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/control/EpidemicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/controller/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/controller/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/epidemicsolution/epidemic-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/epidemicsolution/epidemic-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +49,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.example.epidemicsolution.EpidemicApplication" />
       <module name="epidemic-solution" />

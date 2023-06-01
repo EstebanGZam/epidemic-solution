@@ -147,15 +147,15 @@ public class Map {
 		int idCity2 = (int) r2.getLayoutX() * (int) r2.getLayoutY();
 		// Used Dijkstra
 		map.dijkstra(idCity1);
-		// Color the shortest path between cities in white
+		// Color the shortest path between cities in black
 		int currentVertex = idCity2;
 		while (map.getVertex(currentVertex).getPredecessor() != null) {
 			int predecessorVertex = map.getVertex(currentVertex).getPredecessor().getKey();
 			int edgeKey = currentVertex + predecessorVertex;
 			Line line = lines.get(edgeKey);
 			if (line != null) {
-				line.setStrokeWidth(1.5); // Set line thickness
-				line.setStroke(Color.BLACK); // Set the stroke color to white
+				line.setStrokeWidth(2.5); // Set line thickness
+				line.setStroke(Color.BLACK); // Set the stroke color to black
 			}
 			currentVertex = predecessorVertex;
 		}
@@ -171,8 +171,8 @@ public class Map {
 			int edgeKey = city1 + city2;
 			Line line = lines.get(edgeKey);
 			if (line != null) {
-				line.setStrokeWidth(1.5); // Set the thickness of the line
-				line.setStroke(Color.BLACK); // Set the stroke color to white
+				line.setStrokeWidth(2.5); // Set the thickness of the line
+				line.setStroke(Color.BLACK); // Set the stroke color to black
 			}
 		}
 	}

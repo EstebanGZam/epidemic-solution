@@ -4,9 +4,7 @@ import com.example.epidemicsolution.controller.Map;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
@@ -72,7 +70,12 @@ public class EpidemicController implements Initializable {
         map.resetColorLines();
         if (selectedRadioButton1 != null && selectedRadioButton2 != null) {
             int distanceBetweenTwoCities = map.distanceBetweenTwoCities(selectedRadioButton1, selectedRadioButton2);
-            System.out.println(distanceBetweenTwoCities);
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setHeaderText("Distance between two cities: " + distanceBetweenTwoCities);
+            dialog.setTitle("Information");
+            DialogPane dialogPane = dialog.getDialogPane();
+            dialogPane.getButtonTypes().add(ButtonType.OK);
+            dialog.showAndWait();
         } else {
             showAlert("Please select two cities.");
         }
