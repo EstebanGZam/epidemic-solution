@@ -10,83 +10,71 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="150.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.epidemicsolution.control.InitController">
-    <children>
+            fx:controller="com.example.epidemicsolution.controller.InitController">
+    <VBox alignment="CENTER" prefHeight="150.0" prefWidth="400.0"
+          style="-fx-background-color: F04F1F; -fx-background-radius: 30;">
         <VBox alignment="CENTER" prefHeight="150.0" prefWidth="400.0"
-              style="-fx-background-color: F04F1F; -fx-background-radius: 30;">
-            <children>
-                <VBox alignment="CENTER" prefHeight="150.0" prefWidth="400.0"
-                      style="-fx-background-color: #FFFFFF; -fx-background-radius: 27;">
-                    <children>
-                        <Label fx:id="label1" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0"
-                               text="Implementation" textAlignment="CENTER" textFill="#fa5e4d">
-                            <font>
-                                <Font name="Leelawadee UI Bold" size="28.0"/>
-                            </font>
-                            <VBox.margin>
-                                <Insets bottom="10.0"/>
-                            </VBox.margin>
-                        </Label>
-                        <VBox>
-                            <children>
-                                <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="20.0"
-                                       prefWidth="389.0" text="Which implementation of the graph do you want?"
-                                       textAlignment="CENTER" textFill="#868686">
-                                    <VBox.margin>
-                                        <Insets bottom="10.0"/>
-                                    </VBox.margin>
-                                    <font>
-                                        <Font size="14.0"/>
-                                    </font>
-                                </Label>
-                            </children>
-                        </VBox>
-                        <HBox alignment="CENTER">
-                            <children>
-                                <ComboBox fx:id="implementationCb" promptText="Choose an option"
-                                          style="-fx-background-color: WHITE;" visibleRowCount="2">
-                                    <effect>
-                                        <DropShadow>
-                                            <color>
-                                                <Color opacity="0.47999998927116394"/>
-                                            </color>
-                                        </DropShadow>
-                                    </effect>
-                                    <cursor>
-                                        <Cursor fx:constant="HAND"/>
-                                    </cursor>
-                                    <HBox.margin>
-                                        <Insets bottom="10.0"/>
-                                    </HBox.margin>
-                                </ComboBox>
-                            </children>
-                            <cursor>
-                                <Cursor fx:constant="DEFAULT"/>
-                            </cursor>
-                        </HBox>
-                        <HBox alignment="CENTER">
-                            <children>
-                                <Button fx:id="continueBTN" mnemonicParsing="false" onAction="#show"
-                                        style="-fx-background-color: #fa5e4d; -fx-background-radius: 7; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);"
-                                        text="Continue" textAlignment="CENTER" textFill="WHITE">
-                                    <HBox.margin>
-                                        <Insets left="10.0"/>
-                                    </HBox.margin>
-                                    <font>
-                                        <Font name="System Bold" size="12.0"/>
-                                    </font>
-                                </Button>
-                            </children>
-                            <VBox.margin>
-                                <Insets bottom="10.0"/>
-                            </VBox.margin>
-                        </HBox>
-                    </children>
+              style="-fx-background-color: #FFFFFF; -fx-background-radius: 27;">
+            <VBox.margin>
+                <Insets left="8.0" right="8.0"/>
+            </VBox.margin>
+            <Label fx:id="label1" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0"
+                   text="Implementation" textAlignment="CENTER" textFill="#fa5e4d">
+                <font>
+                    <Font name="Leelawadee UI Bold" size="28.0"/>
+                </font>
+                <VBox.margin>
+                    <Insets bottom="10.0"/>
+                </VBox.margin>
+            </Label>
+            <VBox>
+                <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" prefHeight="20.0"
+                       prefWidth="389.0" text="Which implementationType of the graph do you want?"
+                       textAlignment="CENTER" textFill="#868686">
                     <VBox.margin>
-                        <Insets left="8.0" right="8.0"/>
+                        <Insets bottom="10.0"/>
                     </VBox.margin>
-                </VBox>
-            </children>
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </Label>
+            </VBox>
+            <HBox alignment="CENTER">
+                <cursor>
+                    <Cursor fx:constant="DEFAULT"/>
+                </cursor>
+                <ComboBox fx:id="implementationCb" promptText="Choose an option"
+                          style="-fx-background-color: WHITE;" visibleRowCount="2">
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color opacity="0.47999998927116394"/>
+                            </color>
+                        </DropShadow>
+                    </effect>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                    <HBox.margin>
+                        <Insets bottom="10.0"/>
+                    </HBox.margin>
+                </ComboBox>
+            </HBox>
+            <HBox alignment="CENTER">
+                <VBox.margin>
+                    <Insets bottom="10.0"/>
+                </VBox.margin>
+                <Button fx:id="continueBTN" mnemonicParsing="false" onAction="#show"
+                        style="-fx-background-color: #fa5e4d; -fx-background-radius: 7; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);"
+                        text="Continue" textAlignment="CENTER" textFill="WHITE">
+                    <HBox.margin>
+                        <Insets left="10.0"/>
+                    </HBox.margin>
+                    <font>
+                        <Font name="System Bold" size="12.0"/>
+                    </font>
+                </Button>
+            </HBox>
         </VBox>
-    </children>
+    </VBox>
 </AnchorPane>

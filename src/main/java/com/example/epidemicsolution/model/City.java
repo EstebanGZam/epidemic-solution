@@ -1,4 +1,4 @@
-package com.example.epidemicsolution.controller;
+package com.example.epidemicsolution.model;
 
 public class City {
 

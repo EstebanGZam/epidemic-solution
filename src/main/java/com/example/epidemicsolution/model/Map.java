@@ -1,5 +1,6 @@
-package com.example.epidemicsolution.controller;
+package com.example.epidemicsolution.model;
 
+import com.example.epidemicsolution.controller.ImplementationType;
 import com.example.epidemicsolution.dataStructures.graph.Edge;
 import com.example.epidemicsolution.dataStructures.graph.GraphType;
 import com.example.epidemicsolution.dataStructures.graph.IGraph;
@@ -20,20 +21,20 @@ import java.util.HashMap;
 public class Map {
 
 	private static Map instance;
-	private IGraph<Integer, City> map;
+	private final IGraph<Integer, City> map;
 	private HashMap<Integer, RadioButton> radioButtons;
 	private HashMap<Integer, Line> lines;
 
-	private Map(Implementation implementation) {
-		map = (implementation == Implementation.LIST) ? new GraphAdjacencyList<>(GraphType.SIMPLE) : new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
+	private Map(ImplementationType implementationType) {
+		map = (implementationType == ImplementationType.LIST) ? new GraphAdjacencyList<>(GraphType.SIMPLE) : new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
 		radioButtons = new HashMap<>();
 		lines = new HashMap<>();
 		loadCity();
 		loadRoute();
 	}
 
-	public static Map getInstance(Implementation implementation) {
-		if (instance == null) instance = new Map(implementation);
+	public static Map getInstance(ImplementationType implementationType) {
+		if (instance == null) instance = new Map(implementationType);
 		return instance;
 	}
 

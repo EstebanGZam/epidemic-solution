@@ -1,5 +1,5 @@
 package com.example.epidemicsolution.controller;
 
-public enum Implementation {
-    LIST, MATRIX
+public enum ImplementationType {
+	LIST, MATRIX
 }

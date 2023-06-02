@@ -10,57 +10,80 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainScreen" accessibleRole="RADIO_BUTTON" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.epidemicsolution.control.EpidemicController">
-    <children>
-        <ImageView fitHeight="700.0" fitWidth="668.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@image/map.png" />
-            </image>
-        </ImageView>
-        <HBox prefHeight="10.0" prefWidth="1080.0" style="-fx-background-color: F04F1F; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);" />
-      <HBox layoutX="670.0" layoutY="492.0" prefHeight="10.0" prefWidth="400.0" style="-fx-background-color: F04F1F; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);" />
-        <HBox layoutY="690.0" prefHeight="10.0" prefWidth="1080.0" style="-fx-background-color: F04F1F; -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, 0.0, -10.0);" />
-        <VBox prefHeight="700.0" prefWidth="10.0" style="-fx-background-color: F04F1F; -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, 10.0, 0.0);" />
-        <VBox layoutX="660.0" prefHeight="700.0" prefWidth="10.0" style="-fx-background-color: F04F1F;" />
-        <VBox layoutX="1070.0" prefHeight="700.0" prefWidth="10.0" style="-fx-background-color: F04F1F; -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, -10.0, 0.0);" />
-        <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="770.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);">
-            <image>
-                <Image url="@image/logo.png" />
-            </image>
-        </ImageView>
-      <Label layoutX="415.0" layoutY="656.0" text="IMPORTANT: &#10;The program does not implement persistence.">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="681.0" layoutY="112.0" text="INSTRUCTIONS FOR EACH PROGRAM BUTTON:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="681.0" layoutY="129.0" prefHeight="314.0" prefWidth="373.0" text="Update Route: To update the amount of supplies needed for a route, &#10;select two adjacent locations on the map and fill in the &quot;Supplies Needed&quot; &#10;field. Then, press the &quot;Update Route&quot; button to view the change. &#10;Hover over the route linking the two locations to view the update.&#10;&#10;Distance between quarantine centers: To check the number of cities &#10;between two quarantine centers, select the two locations and press the &#10;&quot;Distance between quarantine centers&quot; button. Clicking the button will &#10;display an alert with the number of cities between the two centers.&#10;&#10;Evacuation route: To find the evacuation route that requires the least &#10;amount of medical supplies, select two locations and click the &#10;&quot;Evacuation route&quot; button. After clicking, the route will be highlighted in &#10;black on the map.&#10;&#10;Logistics planning: To know the main route through all locations, simply &#10;click on the &quot;Logistics planning&quot; button. By doing so, the route will be &#10;highlighted in black color on the map.">
-         <font>
-            <Font size="11.0" />
-         </font>
-      </Label>
-      <Button fx:id="distanceBtn" alignment="CENTER" layoutX="890.0" layoutY="512.0" mnemonicParsing="false" onAction="#distanceBetweenTwoCities" prefHeight="75.0" prefWidth="150.0" style="-fx-background-color: WHITE; -fx-border-color: BLACK; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);" text="Distance between &#10;quatantine centers">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Button>
-      <Button alignment="CENTER" layoutX="695.0" layoutY="512.0" mnemonicParsing="false" onAction="#updateRoute" prefHeight="75.0" prefWidth="150.0" style="-fx-background-color: WHITE; -fx-border-color: BLACK; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);" text="Update route">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Button>
-      <TextField fx:id="suppliesUsedTf" layoutX="945.0" layoutY="455.0" prefHeight="25.0" prefWidth="107.0" promptText="Supplies Needed" />
-      <TextField fx:id="city1" layoutX="676.0" layoutY="455.0" prefHeight="25.0" prefWidth="126.0" promptText="Center of" />
-      <TextField fx:id="city2" layoutX="811.0" layoutY="455.0" prefHeight="25.0" prefWidth="126.0" promptText="Center of" />
-      <Button alignment="CENTER" layoutX="695.0" layoutY="598.0" mnemonicParsing="false" onAction="#evacuationRoute" prefHeight="75.0" prefWidth="150.0" style="-fx-background-color: WHITE; -fx-border-color: BLACK; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);" text="Evacuation route">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Button>
-      <Button alignment="CENTER" layoutX="890.0" layoutY="598.0" mnemonicParsing="false" onAction="#logisticPlanning" prefHeight="75.0" prefWidth="150.0" style="-fx-background-color: WHITE; -fx-border-color: BLACK; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);" text="Logistic planning">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Button>
-    </children>
+<AnchorPane fx:id="mainScreen" accessibleRole="RADIO_BUTTON" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0"
+            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.epidemicsolution.controller.EpidemicController">
+    <ImageView fitHeight="700.0" fitWidth="668.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@image/map.png"/>
+    </ImageView>
+    <HBox prefHeight="10.0" prefWidth="1080.0"
+          style="-fx-background-color: F04F1F; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);"/>
+    <HBox layoutX="670.0" layoutY="492.0" prefHeight="10.0" prefWidth="400.0"
+          style="-fx-background-color: F04F1F; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);"/>
+    <HBox layoutY="690.0" prefHeight="10.0" prefWidth="1080.0"
+          style="-fx-background-color: F04F1F; -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, 0.0, -10.0);"/>
+    <VBox prefHeight="700.0" prefWidth="10.0"
+          style="-fx-background-color: F04F1F; -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, 10.0, 0.0);"/>
+    <VBox layoutX="660.0" prefHeight="700.0" prefWidth="10.0" style="-fx-background-color: F04F1F;"/>
+    <VBox layoutX="1070.0" prefHeight="700.0" prefWidth="10.0"
+          style="-fx-background-color: F04F1F; -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10.0, 0.0, -10.0, 0.0);"/>
+    <ImageView fitHeight="100.0" fitWidth="300.0" layoutX="770.0" layoutY="12.0" pickOnBounds="true"
+               preserveRatio="true" style="-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);">
+        <Image url="@image/logo.png"/>
+    </ImageView>
+    <Label layoutX="415.0" layoutY="656.0" text="IMPORTANT: &#10;The program does not implement persistence.">
+        <font>
+            <Font name="System Italic" size="12.0"/>
+        </font>
+    </Label>
+    <Label layoutX="681.0" layoutY="112.0" text="INSTRUCTIONS FOR EACH PROGRAM BUTTON:">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+    </Label>
+    <Label layoutX="681.0" layoutY="129.0" prefHeight="314.0" prefWidth="373.0"
+           text="Update Route: To update the amount of supplies needed for a route, &#10;select two adjacent locations on the map and fill in the &quot;Supplies Needed&quot; &#10;field. Then, press the &quot;Update Route&quot; button to view the change. &#10;Hover over the route linking the two locations to view the update.&#10;&#10;Distance between quarantine centers: To check the number of cities &#10;between two quarantine centers, select the two locations and press the &#10;&quot;Distance between quarantine centers&quot; button. Clicking the button will &#10;display an alert with the number of cities between the two centers.&#10;&#10;Evacuation route: To find the evacuation route that requires the least &#10;amount of medical supplies, select two locations and click the &#10;&quot;Evacuation route&quot; button. After clicking, the route will be highlighted in &#10;black on the map.&#10;&#10;Logistics planning: To know the main route through all locations, simply &#10;click on the &quot;Logistics planning&quot; button. By doing so, the route will be &#10;highlighted in black color on the map.">
+        <font>
+            <Font size="11.0"/>
+        </font>
+    </Label>
+    <Button fx:id="distanceBtn" alignment="CENTER" layoutX="890.0" layoutY="512.0" mnemonicParsing="false"
+            onAction="#distanceBetweenTwoCities" prefHeight="75.0" prefWidth="150.0"
+            style="-fx-background-color: WHITE; -fx-border-color: BLACK; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);"
+            text="Distance between &#10;quatantine centers">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+    </Button>
+    <Button alignment="CENTER" layoutX="695.0" layoutY="512.0" mnemonicParsing="false" onAction="#updateRoute"
+            prefHeight="75.0" prefWidth="150.0"
+            style="-fx-background-color: WHITE; -fx-border-color: BLACK; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);"
+            text="Update route">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+    </Button>
+    <TextField fx:id="suppliesUsedTf" layoutX="945.0" layoutY="455.0" prefHeight="25.0" prefWidth="107.0"
+               promptText="Supplies Needed"/>
+    <TextField fx:id="city1" layoutX="676.0" layoutY="455.0" prefHeight="25.0" prefWidth="126.0"
+               promptText="Center of"/>
+    <TextField fx:id="city2" layoutX="811.0" layoutY="455.0" prefHeight="25.0" prefWidth="126.0"
+               promptText="Center of"/>
+    <Button alignment="CENTER" layoutX="695.0" layoutY="598.0" mnemonicParsing="false" onAction="#evacuationRoute"
+            prefHeight="75.0" prefWidth="150.0"
+            style="-fx-background-color: WHITE; -fx-border-color: BLACK; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);"
+            text="Evacuation route">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+    </Button>
+    <Button alignment="CENTER" layoutX="890.0" layoutY="598.0" mnemonicParsing="false" onAction="#logisticPlanning"
+            prefHeight="75.0" prefWidth="150.0"
+            style="-fx-background-color: WHITE; -fx-border-color: BLACK; -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,0.0,10.0);"
+            text="Logistic planning">
+        <font>
+            <Font name="System Bold" size="12.0"/>
+        </font>
+    </Button>
 </AnchorPane>

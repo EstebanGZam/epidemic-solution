@@ -448,23 +448,23 @@ public class GraphTest {
 
 	@Test
 	public void testDijkstra1() {
-//		GraphAdjacencyList<String, String> g = new GraphAdjacencyList<>(GraphType.SIMPLE);
-		GraphAdjacencyMatrix<String, String> g = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
-		g.insertVertex("a", "a");
-		g.insertVertex("b", "b");
-		g.insertVertex("c", "c");
-		g.insertVertex("d", "d");
-		g.insertVertex("e", "e");
-		g.insertVertex("z", "z");
-		g.insertEdge("a", "b", 4);
-		g.insertEdge("a", "d", 2);
-		g.insertEdge("d", "e", 3);
-		g.insertEdge("b", "c", 3);
-		g.insertEdge("b", "e", 3);
-		g.insertEdge("c", "z", 2);
-		g.insertEdge("e", "z", 1);
+//		GraphAdjacencyList<String, String> simpleGraph3 = new GraphAdjacencyList<>(GraphType.SIMPLE);
+		GraphAdjacencyMatrix<String, String> simpleGraph3 = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
+		simpleGraph3.insertVertex("a", "a");
+		simpleGraph3.insertVertex("b", "b");
+		simpleGraph3.insertVertex("c", "c");
+		simpleGraph3.insertVertex("d", "d");
+		simpleGraph3.insertVertex("e", "e");
+		simpleGraph3.insertVertex("z", "z");
+		simpleGraph3.insertEdge("a", "b", 4);
+		simpleGraph3.insertEdge("a", "d", 2);
+		simpleGraph3.insertEdge("d", "e", 3);
+		simpleGraph3.insertEdge("b", "c", 3);
+		simpleGraph3.insertEdge("b", "e", 3);
+		simpleGraph3.insertEdge("c", "z", 2);
+		simpleGraph3.insertEdge("e", "z", 1);
 		ArrayList<Integer> distances = new ArrayList<>(Arrays.asList(0, 4, 7, 2, 5, 6));
-		assertEquals(distances, g.dijkstra("a"));
+		assertEquals(distances, simpleGraph3.dijkstra("a"));
 	}
 
 	@Test
