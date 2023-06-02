@@ -74,8 +74,4 @@ public class Vertex<K extends Comparable<K>, E> {
         return finishTime;
     }
 
-    public String toString() {
-        return element.toString();
-    }
-
 }

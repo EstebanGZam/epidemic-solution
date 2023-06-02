@@ -4,15 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8825d48-d110-4b1d-9369-217d9b92488c" name="Changes" comment="Class diagram added">
+    <list default="true" id="b8825d48-d110-4b1d-9369-217d9b92488c" name="Changes" comment="Correction in the graph TAD">
+      <change afterPath="$PROJECT_DIR$/test/model/MapTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/TAD - Graph.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/TAD - Graph.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/IGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/IGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/Vertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/Vertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyList/GraphAdjacencyList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyList/GraphAdjacencyList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyMatrix/GraphAdjacencyMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/dataStructures/graph/graphAdjacencyMatrix/GraphAdjacencyMatrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/dataStructures/graph/GraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/dataStructures/graph/GraphTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -53,7 +64,7 @@
     "settings.editor.selected.configurable": "project.propCompiler"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.GraphTest">
+  <component name="RunManager" selected="JUnit.MapTest.testUpdateRoute1">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.example.epidemicsolution.EpidemicApplication" />
       <module name="epidemic-solution" />
@@ -76,6 +87,54 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GraphTest.testKruskal1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epidemic-solution" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataStructures.graph.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataStructures.graph" />
+      <option name="MAIN_CLASS_NAME" value="dataStructures.graph.GraphTest" />
+      <option name="METHOD_NAME" value="testKruskal1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GraphTest.testKruskal2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epidemic-solution" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataStructures.graph.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataStructures.graph" />
+      <option name="MAIN_CLASS_NAME" value="dataStructures.graph.GraphTest" />
+      <option name="METHOD_NAME" value="testKruskal2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MapTest.testUpdateRoute1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="epidemic-solution" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.MapTest" />
+      <option name="METHOD_NAME" value="testUpdateRoute1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="dataStructures.graph in epidemic-solution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="epidemic-solution" />
       <extension name="coverage">
@@ -92,11 +151,17 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.GraphTest.testKruskal1" />
+      <item itemvalue="JUnit.GraphTest.testKruskal2" />
+      <item itemvalue="JUnit.MapTest.testUpdateRoute1" />
       <item itemvalue="JUnit.GraphTest" />
       <item itemvalue="JUnit.dataStructures.graph in epidemic-solution" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MapTest.testUpdateRoute1" />
+        <item itemvalue="JUnit.GraphTest.testKruskal2" />
+        <item itemvalue="JUnit.GraphTest.testKruskal1" />
         <item itemvalue="JUnit.GraphTest" />
         <item itemvalue="JUnit.dataStructures.graph in epidemic-solution" />
       </list>
@@ -118,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685725430925</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Correction in the graph TAD">
+      <created>1685726880909</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685726880910</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -134,7 +206,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Class diagram added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Class diagram added" />
+    <MESSAGE value="Correction in the graph TAD" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correction in the graph TAD" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/epidemic_solution$Main.ic" NAME="Main Coverage Results" MODIFIED="1685235181082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

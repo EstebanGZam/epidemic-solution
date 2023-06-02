@@ -31,8 +31,8 @@ public class GraphTest {
 	private IGraph<Integer, String> multiGraphDirected;
 
 	private void setupStageSimpleGraph() {
-		simpleGraph = new GraphAdjacencyList<>(GraphType.SIMPLE);
-//		simpleGraph = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
+//		simpleGraph = new GraphAdjacencyList<>(GraphType.SIMPLE);
+		simpleGraph = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
 		// Insert vertexes in the graph
 		simpleGraph.insertVertex(1, "A");
 		simpleGraph.insertVertex(2, "B");
@@ -45,8 +45,8 @@ public class GraphTest {
 	}
 
 	private void setupStagePseudoGraph() {
-		pseudoGraph = new GraphAdjacencyList<>(GraphType.PSEUDOGRAPH);
-//		pseudoGraph = new GraphAdjacencyMatrix<>(GraphType.PSEUDOGRAPH);
+//		pseudoGraph = new GraphAdjacencyList<>(GraphType.PSEUDOGRAPH);
+		pseudoGraph = new GraphAdjacencyMatrix<>(GraphType.PSEUDOGRAPH);
 		// Insert vertexes in the graph
 		pseudoGraph.insertVertex("1", 1);
 		pseudoGraph.insertVertex("2", 2);
@@ -67,8 +67,8 @@ public class GraphTest {
 	}
 
 	private void setupStageMultiGraph() {
-		multiGraph = new GraphAdjacencyList<>(GraphType.MULTIGRAPH);
-//		multiGraph = new GraphAdjacencyMatrix<>(GraphType.MULTIGRAPH);
+//		multiGraph = new GraphAdjacencyList<>(GraphType.MULTIGRAPH);
+		multiGraph = new GraphAdjacencyMatrix<>(GraphType.MULTIGRAPH);
 		multiGraph.insertVertex(1, "1");
 		multiGraph.insertVertex(2, "2");
 		multiGraph.insertVertex(3, "3");
@@ -90,8 +90,8 @@ public class GraphTest {
 	}
 
 	private void setupStageDirectedGraph() {
-		directedGraph1 = new GraphAdjacencyList<>(GraphType.DIRECTED);
-//		directedGraph1 = new GraphAdjacencyMatrix<>(GraphType.DIRECTED);
+//		directedGraph1 = new GraphAdjacencyList<>(GraphType.DIRECTED);
+		directedGraph1 = new GraphAdjacencyMatrix<>(GraphType.DIRECTED);
 		directedGraph1.insertVertex(1, "1");
 		directedGraph1.insertVertex(2, "2");
 		directedGraph1.insertVertex(3, "3");
@@ -134,13 +134,13 @@ public class GraphTest {
 
 
 	private void setupStageMultiGraphDirected() {
-		multiGraphDirected = new GraphAdjacencyList<>(GraphType.MULTIGRAPH_DIRECTED);
-//		multiGraphDirected = new GraphAdjacencyMatrix<>(GraphType.MULTIGRAPH_DIRECTED);
+//		multiGraphDirected = new GraphAdjacencyList<>(GraphType.MULTIGRAPH_DIRECTED);
+		multiGraphDirected = new GraphAdjacencyMatrix<>(GraphType.MULTIGRAPH_DIRECTED);
 	}
 
 	private void setupStage6() {
-		simpleGraph2 = new GraphAdjacencyList<>(GraphType.SIMPLE);
-//		simpleGraph2 = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
+//		simpleGraph2 = new GraphAdjacencyList<>(GraphType.SIMPLE);
+		simpleGraph2 = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
 		simpleGraph2.insertVertex("r", "r");
 		simpleGraph2.insertVertex("s", "s");
 		simpleGraph2.insertVertex("t", "t");
@@ -150,6 +150,30 @@ public class GraphTest {
 		simpleGraph2.insertVertex("x", "x");
 		simpleGraph2.insertVertex("y", "y");
 		simpleGraph2.insertVertex("z", "z");
+	}
+
+	private void setupStage7() {
+//		simpleGraph2 = new GraphAdjacencyList<>(GraphType.SIMPLE);
+		simpleGraph2 = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
+
+		simpleGraph2.insertVertex("a", "a");
+		simpleGraph2.insertVertex("b", "b");
+		simpleGraph2.insertVertex("c", "c");
+		simpleGraph2.insertVertex("d", "d");
+		simpleGraph2.insertVertex("e", "e");
+		simpleGraph2.insertVertex("z", "z");
+
+	}
+
+	private void setupStage8() {
+//		simpleGraph = new GraphAdjacencyList<>(GraphType.SIMPLE);
+		simpleGraph = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
+
+		simpleGraph.insertVertex(1, "a");
+		simpleGraph.insertVertex(2, "b");
+		simpleGraph.insertVertex(3, "c");
+		simpleGraph.insertVertex(4, "d");
+
 	}
 
 	// insertVertex() method
@@ -417,27 +441,25 @@ public class GraphTest {
 
 	}
 
+	// dijkstra() method
+	// Test 1
 	@Test
 	public void testDijkstra1() {
-//		GraphAdjacencyList<String, String> simpleGraph3 = new GraphAdjacencyList<>(GraphType.SIMPLE);
-		GraphAdjacencyMatrix<String, String> simpleGraph3 = new GraphAdjacencyMatrix<>(GraphType.SIMPLE);
-		simpleGraph3.insertVertex("a", "a");
-		simpleGraph3.insertVertex("b", "b");
-		simpleGraph3.insertVertex("c", "c");
-		simpleGraph3.insertVertex("d", "d");
-		simpleGraph3.insertVertex("e", "e");
-		simpleGraph3.insertVertex("z", "z");
-		simpleGraph3.insertEdge("a", "b", 4);
-		simpleGraph3.insertEdge("a", "d", 2);
-		simpleGraph3.insertEdge("d", "e", 3);
-		simpleGraph3.insertEdge("b", "c", 3);
-		simpleGraph3.insertEdge("b", "e", 3);
-		simpleGraph3.insertEdge("c", "z", 2);
-		simpleGraph3.insertEdge("e", "z", 1);
+		setupStage7();
+
+		simpleGraph2.insertEdge("a", "b", 4);
+		simpleGraph2.insertEdge("a", "d", 2);
+		simpleGraph2.insertEdge("d", "e", 3);
+		simpleGraph2.insertEdge("b", "c", 3);
+		simpleGraph2.insertEdge("b", "e", 3);
+		simpleGraph2.insertEdge("c", "z", 2);
+		simpleGraph2.insertEdge("e", "z", 1);
+
 		ArrayList<Integer> distances = new ArrayList<>(Arrays.asList(0, 4, 7, 2, 5, 6));
-		assertEquals(distances, simpleGraph3.dijkstra("a"));
+		assertEquals(distances, simpleGraph2.dijkstra("a"));
 	}
 
+	// Test 2
 	@Test
 	public void testDijkstra2() {
 		setupStageSimpleGraph();
@@ -445,11 +467,43 @@ public class GraphTest {
 		assertEquals(distances, simpleGraph.dijkstra(1));
 	}
 
+	// Test 3
 	@Test
 	public void testDijkstra3() {
 		setupStagePseudoGraph();
 		ArrayList<Integer> distances = new ArrayList<>(Arrays.asList(1, 2, 0, 2, 1));
 		assertEquals(distances, pseudoGraph.dijkstra("3"));
+	}
+
+	// kruskal() method
+	// Test 1
+	@Test
+	public void testKruskal1() {
+		setupStage8();
+
+		simpleGraph.insertEdge(1, 2, 10);
+		simpleGraph.insertEdge(1, 3, 7);
+		simpleGraph.insertEdge(2, 3, 5);
+		simpleGraph.insertEdge(2, 4, 3);
+
+		ArrayList<Edge<Integer, String>> path = simpleGraph.kruskal();
+		assertEquals(new Edge<>(simpleGraph.getVertex(2), simpleGraph.getVertex(4), 3), path.get(0));
+		assertEquals(new Edge<>(simpleGraph.getVertex(2), simpleGraph.getVertex(3), 5), path.get(1));
+		assertEquals(new Edge<>(simpleGraph.getVertex(1), simpleGraph.getVertex(3), 7), path.get(2));
+	}
+
+	// Test 2
+	@Test
+	public void testKruskal2() {
+		setupStageSimpleGraph();
+		Assertions.assertTrue(simpleGraph.kruskal().isEmpty());
+	}
+
+	// Test 3
+	@Test
+	public void testKruskal3() {
+		setupStageDirectedGraph();
+		Assertions.assertThrows(GraphException.class, () -> directedGraph1.kruskal());
 	}
 
 }
