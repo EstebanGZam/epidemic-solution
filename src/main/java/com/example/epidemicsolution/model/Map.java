@@ -139,7 +139,7 @@ public class Map {
 		// Used BFS
 		map.BFS(idCity1);
 		// Return the distance between the city2 and the city1
-		return map.getVertex(idCity2).getDistance() - 1;
+		return idCity1 != idCity2 ? map.getVertex(idCity2).getDistance() - 1 : 0;
 	}
 
 	public void evacuationRoute(RadioButton r1, RadioButton r2) {
