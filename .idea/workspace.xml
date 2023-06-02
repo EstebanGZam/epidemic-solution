@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8825d48-d110-4b1d-9369-217d9b92488c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/model/Route.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b8825d48-d110-4b1d-9369-217d9b92488c" name="Changes" comment="Class diagram added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/control/EpidemicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/controller/EpidemicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/control/InitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/controller/InitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/controller/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/model/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/controller/Implementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/controller/ImplementationType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/controller/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/model/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/epidemicsolution/controller/Route.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/epidemicsolution/epidemic-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/epidemicsolution/epidemic-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/epidemicsolution/init-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/epidemicsolution/init-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/TAD - Graph.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/TAD - Graph.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/dataStructures/graph/GraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/dataStructures/graph/GraphTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,6 +111,14 @@
       <option name="presentableId" value="Default" />
       <updated>1685566990278</updated>
     </task>
+    <task id="LOCAL-00001" summary="Class diagram added">
+      <created>1685725430925</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685725430925</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -133,6 +131,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Class diagram added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Class diagram added" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/epidemic_solution$Main.ic" NAME="Main Coverage Results" MODIFIED="1685235181082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

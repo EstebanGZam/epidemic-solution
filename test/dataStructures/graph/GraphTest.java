@@ -25,7 +25,6 @@ public class GraphTest {
 	private IGraph<String, Integer> pseudoGraph;
 	private IGraph<Integer, String> directedGraph1;
 
-	private IGraph<String, String> directedGraph2;
 	private IGraph<String, String> simpleGraph2;
 
 	private IGraph<Integer, String> multiGraph;
@@ -151,34 +150,6 @@ public class GraphTest {
 		simpleGraph2.insertVertex("x", "x");
 		simpleGraph2.insertVertex("y", "y");
 		simpleGraph2.insertVertex("z", "z");
-	}
-
-	private void setupStage7() {
-		directedGraph2 = new GraphAdjacencyList<>(GraphType.DIRECTED);
-//		directedGraph2 = new GraphAdjacencyMatrix<>(GraphType.DIRECTED);
-
-		directedGraph2.insertVertex("u", "u");
-		directedGraph2.insertVertex("v", "v");
-		directedGraph2.insertVertex("w", "w");
-		directedGraph2.insertVertex("x", "x");
-		directedGraph2.insertVertex("y", "y");
-		directedGraph2.insertVertex("z", "z");
-
-	}
-
-	private void setupStage8() {
-
-		setupStageSimpleGraph();
-
-		simpleGraph.insertEdge(1, 3, 1);
-		simpleGraph.insertEdge(1, 5, 1);
-		simpleGraph.insertEdge(1, 6, 1);
-		simpleGraph.insertEdge(5, 2, 1);
-		simpleGraph.insertEdge(5, 7, 1);
-		simpleGraph.insertEdge(2, 4, 1);
-		simpleGraph.insertEdge(4, 7, 1);
-		simpleGraph.insertEdge(1, 10, 1);
-
 	}
 
 	// insertVertex() method
