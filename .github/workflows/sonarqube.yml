@@ -1,0 +1,39 @@
+name: SonarQube Analysis with Maven
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    types: [ opened, synchronize, reopened ]
+
+jobs:
+  sonar-analysis:
+    name: SonarQube Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Build with Maven and run tests with JaCoCo
+        run: |
+          mvn clean verify org.jacoco:jacoco-maven-plugin:prepare-agent install
+
+      - name: SonarQube Scan
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: |
+          mvn sonar:sonar \
+            -Dsonar.projectKey=your_project_key \
+            -Dsonar.projectName="Your Project Name" \
+            -Dsonar.java.binaries=target/classes \
+            -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml \
+            -Dsonar.host.url=$SONAR_HOST_URL \
+            -Dsonar.login=$SONAR_TOKEN
