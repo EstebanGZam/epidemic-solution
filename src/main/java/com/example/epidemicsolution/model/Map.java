@@ -41,8 +41,8 @@ public class Map {
 	public void loadCity() {
 		Gson gson = new Gson();
 		File projectDir = new File(System.getProperty("user.dir"));
-		File dataDirectory = new File(projectDir + "\\data");
-		File citiesInformation = new File(dataDirectory + "\\cities.json");
+		File dataDirectory = new File(projectDir, "data");
+		File citiesInformation = new File(dataDirectory, "cities.json");
 		if (!dataDirectory.exists()) {
 			dataDirectory.mkdir();
 		}
@@ -74,8 +74,8 @@ public class Map {
 	public void loadRoute() {
 		Gson gson = new Gson();
 		File projectDir = new File(System.getProperty("user.dir"));
-		File dataDirectory = new File(projectDir + "\\data");
-		File routesInformation = new File(dataDirectory + "\\routes.json");
+		File dataDirectory = new File(projectDir, "data");
+		File routesInformation = new File(dataDirectory, "routes.json");
 		if (!dataDirectory.exists()) {
 			dataDirectory.mkdir();
 		}
